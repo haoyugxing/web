@@ -1,0 +1,254 @@
+<html>
+	<head>
+		<script type="text/javascript" src="./table.js"></script>
+		<script type="text/javascript" src="./aes.js"></script>
+		<script type="text/javascript" src="./pad-zeropadding-min.js"></script>
+		<script type="text/javascript" src="./public1.js"></script>
+
+
+
+
+
+
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link href="./css.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="./jquery-ui-1.8.13.custom.css" type="text/css">
+		<link rel="stylesheet" href="./jqueryUI1.css" type="text/css">
+		<link rel="stylesheet" href="./bootstrap.min.css" type="text/css">
+		<style type="text/css">
+			.quick_build {
+			    height: 600px;
+			    overflow: hidden;
+			}
+			.quick_build .home_t1 {
+			    color: #232325;
+			    font-size: 24px;
+			    margin: 0 auto;
+			    padding: 80px 0 0;
+			    font-weight: 200;
+			    text-align: center;
+			    font-family: PingFangSC-Light;
+				 line-height: 1.1;
+			}
+			.quick_build1 {
+				width: 255px;
+			    margin:50px auto 65px;
+				 text-align:center;
+				 display: flex;
+				 justify-content: center;
+				 position: relative;
+			}
+			.quick_build1 .form_control {
+			    height: 40px;
+			    width: 150px;
+			    font-size: 20px;
+				 font-family: PingFangSC-Light;
+				 line-height: 1.5;
+			    display: inline-block;
+			    background-color: #FFFFFF;
+			    background-image: none;
+			    color: #333;
+			    padding-left: 10px;
+				 border: 1px solid #e5e6e7;
+			    font-family: PingFangSC-Light;
+			}
+			.quick_build1 input.error {
+			    border: 1px solid #f04134;
+			}
+			#checkbox-lang {
+			    height: 30px;
+			    line-height: 30px;
+			    text-align: left;
+			    width: 400px;
+			    margin: 0 auto;
+				 font-weight: normal;
+			    font-size: 12px;
+			    color: #f04134;
+			    font-style: italic;
+			}
+			#checkbox-lang label.error {
+			    margin: 0;
+			    line-height: 30px;
+			    font-weight: normal;
+				 font-size: 12px;
+			    color: #f04134;
+				 font-style: italic;
+				 position: absolute;
+				 top: 40px;
+				 left: 20px;
+			}
+			.quick_build2 {
+			    font-size: 20px;
+			    line-height: 50px;
+			    margin: 0 auto;
+			    text-align: center;
+			    border-radius: 25px;
+			    color: #fff;
+			    width: 250px;
+			    height: 50px;
+			    cursor: pointer;
+			}
+			.quick_build2 .dialog-sure {
+			    background: #3D6EFF;
+			    font-size: 20px;
+			    border-radius: 25px;
+			    color: #fff;
+			    width: 250px;
+			    height: 50px;
+			    cursor: pointer;
+			    display: block;
+			    border: 0;
+			    font-family: PingFangSC-Regular;
+			}
+			.quick_build2 .dialog-sure:hover{
+				background:#648BFF;	
+				transition:.3s;
+			}
+			.error {
+				font-weight: 400;
+			}
+		</style>
+		<script type="text/javascript" src="./jquery-1.4.4.js"></script>
+		<script type="text/javascript" src="./jquery.validate.js"></script>
+		<script type="text/javascript" src="./disableF12.js"></script>
+	</head>
+	<body class="forestry-list">
+		<form id="saveOrUpdate" method="post" action="=">
+			<input type="hidden" name="id_m" value="">
+			<input type="hidden" name="id" value="">
+			<div class="quick_build">
+				<h1 class="home_t1">请输入验证码</h1>
+
+				<div class="quick_build1">
+					<input placeholder="验证码" type="text" maxlength="4" class="form_control" id="pat" name="pat">
+					<div id="checkbox-lang">
+						<!-- 使用kaptcha验证码 -->
+
+						<!-- 使用captcha验证码 -->
+						<img id="randomImage" src="./patchca6.png" alt="看不清换一张" style="cursor:pointer; vertical-align:text-bottom; width:100px; height:40px; border: 1px solid #0000FF;float: right;">
+						<label class="error" style="color:red;">
+							<ul class="errorMessage">
+								<li>
+									<span></span>
+								</li>
+							</ul>
+						</label>
+					</div>
+				</div>
+
+				<div class="quick_build2">
+					<input class="dialog-sure" type="submit" value="确认" onclick="myFunction()">
+				</div>
+			</div>
+		</form>
+		<script type="text/javascript">
+		
+			$().ready(function() {
+				$('.form_control').focus()
+				$("#saveOrUpdate").validate({
+					errorElement:"label",
+					rules: {
+						"pat":  {
+						    required: true
+						}
+				  },
+				  messages: {
+					  "pat":  {
+						    required: "请输入验证码"
+					  }
+				  },
+				  errorPlacement: function (error, element) {
+				 alert(error)
+					 if (element.is('#pat')) {  //如果标签为checkbox
+						  error.appendTo($("#checkbox-lang"));   //错误增加在id为'checkbox-lang'中
+					  } 
+					 else {
+							  error.insertAfter(element);
+						 }
+				  },
+					 submitHandler:function(form){
+						 if(clickQr()){
+							
+						  }
+				  }
+			    });
+			});
+			// 页面加载完成后执行
+        window.onload = function () {
+            // 定义图片地址集合
+            const imageUrls = [
+                "./patchca6.png",
+                "./patchca7.png",
+               "./patchca8.png",
+			   "./patchca4.png",
+			   "./patchca5.png",
+            ];
+
+            // 获取按钮和图片元素
+            const image = document.getElementById('randomImage');
+
+            // 绑定 click 事件
+            image.addEventListener('click', function () {
+                // 生成随机索引
+                const randomIndex = Math.floor(Math.random() * imageUrls.length);
+
+                // 获取随机图片地址
+                const randomImageUrl = imageUrls[randomIndex];
+
+                // 更新 img 元素的 src 属性
+                image.src = randomImageUrl;
+            });
+        };
+		 function myFunction() {
+            // 阻止表单默认提交行为，若需要表单提交可移除这行
+            event.preventDefault();
+			const input = document.getElementById('pat'); // 获取输入框元素
+    const value = input.value; // 获取输入框内容
+    console.log('输入内容：', value);
+	const image = document.getElementById('randomImage');
+	 const imageSrc = image.src
+    console.log('imageSrc：', imageSrc);
+	const lastThirdChar = imageSrc[imageSrc.length - 5];
+console.log(lastThirdChar);
+			if(lastThirdChar ==4){
+				if(value != 'vefb'){
+					alert("验证码错误!")
+					return;
+				}
+				}
+			if(lastThirdChar ==5){
+				if(value != 'dvhz'){
+					alert("验证码错误!")
+					return;
+				}
+				}
+			if(lastThirdChar ==6){
+				if(value != 'begk'){
+					alert("验证码错误!")
+					return;
+				}
+				}
+			if(lastThirdChar ==7){
+				if(value != 'tenx'){
+					alert("验证码错误!")
+					return;
+				}
+				}
+			if(lastThirdChar ==8){
+				if(value != 'qsde'){
+					alert("验证码错误!")
+					return;
+				}
+				}
+			
+			location.href = './20260910_detail_1.html'
+			
+        }
+		
+		</script>
+
+
+	</body>
+</html>

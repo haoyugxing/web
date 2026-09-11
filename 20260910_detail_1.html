@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>测试</title>
+	<style>
+		/* 设置body和html的高度为100%，这样它们就可以占据整个视口 */
+		html, body {
+		    /* height: 100%; */
+		    margin: 0; /* 移除默认的margin */
+		    padding: 0; /* 移除默认的padding */
+		}
+		 
+		/* 设置图片容器的高度和宽度为100%，使其覆盖整个屏幕 */
+		.fullscreen-image {
+		    width: 100%; /* 宽度为100% */
+		    height: 100%; /* 高度为100% */
+		    overflow: hidden; /* 隐藏溢出的部分 */
+		}
+		 
+		/* 设置img标签的宽度和高度也为100%，确保图片填满容器 */
+		.fullscreen-image img {
+		    width: 100%; /* 宽度为100% */
+		    /* height: 100%; /* 高度为100% */ */
+		    /* object-fit: cover; /* 保持图片的宽高比，并覆盖整个容器 */ */
+		}
+	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Image</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="fullscreen-image">
+        <img src="./1.jpg" alt="Full Screen Image">
+    </div>
+</body>
+</html>
