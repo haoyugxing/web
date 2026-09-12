@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>【NFFE】报告溯源查询系统</title>
+    <script src="jquery-2.2.4.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        //获取参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return "";
+        }
+        window.onload = function () {
+
+            queryTask();
+
+        };
+
+        function queryTask() {
+
+            var keyid = getQueryString("keyid");
+            var code = getQueryString("code");
+            $.ajax({
+                type: "GET",
+                //url: "http://127.0.0.1/dev-api/site/getTraceability",
+                url: "../prod-api/site/getTraceability",
+                data: { "type": "bgcx_rqcode", keyid: keyid, code: code },
+                dataType: "JSON",
+                success: function (result) {
+                    if (result) {
+                        var model = eval(result.data);
+                        var flag = model['flag'];
+                        if (flag === "作废") { // 新增：判断flag
+                            $(".row.content").hide(); // 隐藏内容区域
+                            $(".state").hide(); // 隐藏内容区域
+                            var message = $("<div>")
+                                .addClass("alert-message") // 应用样式类
+                                .text("该检验报告已声明作废");
+                            $(".row.content").after(message); // 显示提示
+                            return; // 终止后续操作
+                        }
+                        for (var key in model) {
+                            var val = model[key];
+                            val = val == null ? "" : val;
+                            // 上标
+                            var pos = val.toString().indexOf("^{");
+                            if (pos > -1) {
+                                if (val.toString().indexOf("^}", pos) > -1) {
+                                    val = val.replace("^{", "");
+                                    val = val.replace("^}", "");
+                                }
+                            }
+                            // 下标
+                            pos = val.toString().indexOf("^(");
+                            if (pos > -1) {
+                                if (val.toString().indexOf("^)", pos) > -1) {
+                                    val = val.replace("^(", "");
+                                    val = val.replace("^)", "");
+                                }
+                            }
+                            $("#" + key).text(val);
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+    <style type="text/css">
+        *
+        {
+            margin: 0px;
+            padding: 0px;
+            font-family: "Times New Roman" !important;
+            font-size: 15px;
+        }
+        body
+        {
+            background-color: blue;
+        }
+        .container
+        {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            background-color: #f2f2f2;
+        }
+		.logo-row{
+			background-color:#fff;
+			width:100%;
+			height:50px;
+			position:absolute;
+			top:0;
+		}
+		.logo {
+			width: 951px;
+			height: 45px;
+			background-image: url(logo.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			position: absolute;
+			top: 5px;
+			left: 10px;
+		}
+        .row
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #fff;
+        }
+        .seachBox
+        {
+            flex-direction: row;
+            border: 1px solid #3560ab;
+            margin-bottom: 5px;
+			margin-top:52px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .seachBox a
+        {
+            width: 100%;
+            height: 38px;
+            line-height: 38px;
+            background: #3560ab;
+            color: #fff;
+            font-size: 1em;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .seachBox input
+        {
+            border: 0px;
+            padding: 5px 2px;
+            width: 100%;
+            border-bottom: 1px solid #f2f2f2;
+            font-size: 12px;
+        }
+        .seachBox span
+        {
+            width: 100%;
+        }
+        .content .item
+        {
+            width: 100%;
+            padding: 10px 5px;
+            border-bottom: 1px solid #f2f2f2;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+        .item span
+        {
+            padding-left: 10px;
+            width: 180px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .item a
+        {
+            padding-left: 10px;
+			padding-right:15px;
+        }
+        .content .title
+        {
+            width: 100%;
+            padding-left: 22px;
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+        .state
+        {
+            width: 100%;
+            position: fixed;
+            display: flex;
+            font-size: 12px;
+            color: red;
+            margin-top: 10px;
+            background-color: #fff;
+            justify-content: center;
+        }
+        .footer
+        {
+            width: 100%;
+            position: fixed;
+			text-align:center;
+            bottom: 0px;
+            display: flex;
+            font-size: 12px;
+            color: gray;
+            margin-top: 50px;
+            background-color: #fff;
+            justify-content: center;
+        }
+		.watermark {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(-45deg);
+			font-size: 140px;
+			color: rgba(255, 0, 0, 0.2);
+			pointer-events: none;
+			user-select: none;
+			z-index: 9999;
+			white-space: nowrap;
+		}
+        .alert-message{
+            color: #d9001b;
+            text-align: left;
+            padding: 20px;
+            width: 100%;
+            font-size:35px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+		<div class="logo-row">
+			<div class="row logo"></div>
+		</div>
+        <div class="row seachBox">
+            <a>报告溯源查询</a>
+        </div>
+        <div class="row content">
+            <!--            <div class="item title">
+                                产品信息</div>-->
+            <div class="item">
+                <span>认证委托人/委托单位：</span><a id="entrustName"> </a>
+            </div>
+            <div class="item">
+                <span>生产者/送检单位：</span><a id="testedName"> </a>
+            </div>
+            <div class="item">
+                <span>生产企业/生产单位：</span><a id="produceName"> </a>
+            </div>
+            <div class="item">
+                <span>报告编号：</span><a id="taskNo"> </a>
+            </div>
+            <div class="item">
+                <span>产品名称：</span><a id="productName"></a>
+            </div>
+            <div class="item">
+                <span>型号规格：</span><a id="modelSpec"> </a>
+            </div>
+            <div class="item">
+                <span>检验类型：</span><a id="busiCategoryLabel"> </a>
+            </div>
+            <div class="item">
+                <span>检验依据：</span><a id="basisStandard"> </a>
+            </div>
+            <div class="item">
+                <span>检验项目：</span><a id="projectNames"> </a>
+            </div>
+            <div class="item">
+                <span>检验结论：</span><a id="checkResult"> </a>
+            </div>
+            <div class="item">
+                <span>签发日期：</span><a id="signDate"> </a>
+            </div>
+			<div class="watermark" id="flag"></div>
+        </div>
+        <div class="state">
+            免责声明：本查询结果仅证实为本中心出具的检验报告，具体信息以原报告为准。
+        </div>
+        <div class="footer">
+            地址：上海市闵行区莘庄西环路391号 电话：021-54959866 邮编：201199 <br/>
+			Copyright 2002 Right reserved by 国家消防装备质量检验检测中心 沪ICP备05063029号
+        </div>
+    </div>
+</body>
+</html>
