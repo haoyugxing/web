@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>报告验证</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        .td-header
+        {
+            text-align: left;
+            border: solid 1px #C5D7ED;
+            width: 120px;
+            line-height: 60px;
+            height: 35px;
+			font-size:25px;
+			font-weight:bolder;
+        }
+        .td-content
+        {
+            text-align: left;
+            border: solid 1px #C5D7ED;
+            line-height: 30px;
+            height: 35px;
+			font-size:20px;
+        }
+    </style>
+    <script type="text/javascript">
+    </script>
+<link id="layuicss-laydate" rel="stylesheet" href="css/modules/laydate/default/laydate.css?v=5.0.9" media="all"><link id="layuicss-layer" rel="stylesheet" href="css/modules/layer/default/layer.css?v=3.1.1" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="css/modules/code.css" media="all"></head>
+<body>
+    <center>
+        <table style="border: solid 1px #C5D7ED; width: 600px;">
+            <tbody><tr>
+                <th colspan="2" style="background-color: #F1F7FC; line-height: 50px; height: 50px;font-size:30px;">
+                    报告信息
+                </th>
+            </tr>
+            <tr><td class="td-header">报告编号</td><td class="td-content">JN2026JD0731</td></tr>
+<tr><td class="td-header">委托单位</td><td class="td-content">山东中骏金属制品有限公司</td></tr>
+<tr><td class="td-header">收样日期</td><td class="td-content">2026年07月27日</td></tr>
+<tr><td class="td-header">样品名称</td><td class="td-content">防护喷塑电缆桥架</td></tr>
+<tr><td class="td-header">型号规格</td><td class="td-content">200mm×100mm×2000mm</td></tr>
+<tr><td class="td-header">生产单位</td><td class="td-content">山东中骏金属制品有限公司</td></tr>
+<tr><td class="td-header">检测依据</td><td class="td-content">JB/T 10216-2013 GB/T 13452.2-2008  GB/T1720-1789（89)</td></tr>
+<tr><td class="td-header">判定依据</td><td class="td-content">JB/T 10216-2013《电控配电用电缆桥架》</td></tr>
+<tr><td class="td-header">检测项目</td><td class="td-content">外观，机械载荷试验，撞击试验，表面防护层厚度，附着力，均匀性</td></tr>
+<tr><td class="td-header">检测结论</td><td class="td-content">　　该样品经检测，所检项目符合JB/T 10216-2013《电控配电用电缆桥架》的指标要求。</td></tr>
+<tr><td class="td-header">签发日期</td><td class="td-content">2026年08月10日</td></tr>
+<tr><td class="td-header">检测单位</td><td class="td-content">国家建筑材料工业建筑五金水暖产品质量监督检验测试中心</td></tr>
+<tr><td class="td-header">事业部</td><td class="td-content">五金产品检测部</td></tr>
+<tr><td class="td-header">网址</td><td class="td-content"><a href="http://www.bmtbj.cn/">http://www.bmtbj.cn/</a></td></tr>
+<tr><td class="td-header">客服电话</td><td class="td-content">010-88724984 / 88749821</td></tr>
+<tr><td class="td-header">地址</td><td class="td-content">北京市石景山区金顶北路69号</td></tr>
+
+        </tbody></table>
+    </center>
+    <script type="text/javascript" src="http://www.bmtbj.cn/clientcenter/Script/Base64.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var url = window.location.href;
+            var index = url.lastIndexOf("/");
+            var ecode_htmlName = url.substr(index + 1, url.length);
+            var sno = base64decode(ecode_htmlName.replace(".html", ""));
+            var querystr = "?sno=" + encodeURIComponent(sno);
+            var xhr = createXmlHttp();
+            xhr.open("GET", "http://www.bmtbj.cn/clientcenter/Server/QRHandler.ashx" + querystr, true);
+            xhr.setRequestHeader("If-Modified-Since", "0");
+            xhr.send(null);
+        };
+        function createXmlHttp() {//创建xhr对象
+            var xhobj = false;
+            try {
+                xhobj = new ActiveXObject("Msxml2.XMLHTTP"); // ie msxml3.0+
+            } catch (e) {
+                try {
+                    xhobj = new ActiveXObject("Microsoft.XMLHTTP"); //ie msxml2.6
+                } catch (e2) {
+                    xhobj = false;
+                }
+            }
+            if (!xhobj && typeof XMLHttpRequest != 'undefined') {// Firefox, Opera 8.0+, Safari
+                xhobj = new XMLHttpRequest();
+            }
+            return xhobj;
+        }
+    </script>
+
+
+
+</body></html>
