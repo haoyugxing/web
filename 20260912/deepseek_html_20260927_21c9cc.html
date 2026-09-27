@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寻味顺德 · 18站足球闯关任务卡</title>
+<style>
+  :root{
+    --cream:#FBF6EE; --paper:#FFFFFF; --ink:#2A211A; --muted:#7A6A5C;
+    --red:#C1443A; --red-dark:#B93A2B; --gold:#D89B4A; --green:#3E7D5A; --line:#EADFD0;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--ink); min-height:100vh;
+    background:
+      radial-gradient(1200px 600px at 8% -10%, #FDEBD8 0%, transparent 60%),
+      radial-gradient(1000px 520px at 100% 0%, #E8F3EC 0%, transparent 55%),
+      var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  .app{max-width:980px;margin:0 auto;padding:22px 16px 110px;}
+
+  /* ---------- 顶栏 ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .logo{
+    width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:24px;
+    background:linear-gradient(135deg,#C1443A,#E07A3F);
+    box-shadow:0 8px 18px -6px rgba(193,68,58,.55);
+  }
+  .brand h1{margin:0;font-size:19px;letter-spacing:.08em;}
+  .brand p{margin:3px 0 0;font-size:11.5px;color:var(--muted);letter-spacing:.14em;}
+  .progress-wrap{text-align:right;min-width:120px;}
+  .progress-text{font-size:11.5px;color:var(--muted);letter-spacing:.1em;}
+  .progress-text span{font-size:19px;font-weight:800;color:var(--red);font-variant-numeric:tabular-nums;}
+  .progress-bar{height:6px;width:132px;background:#EFE4D6;border-radius:99px;overflow:hidden;margin-top:6px;margin-left:auto;}
+  .progress-bar i{display:block;height:100%;width:5.5%;border-radius:99px;background:linear-gradient(90deg,#C1443A,#D89B4A);transition:width .35s ease;}
+
+  /* ---------- 站点导航 ---------- */
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:6px 2px 14px;scrollbar-width:none;}
+  .chips::-webkit-scrollbar{display:none;}
+  .chip{
+    flex:0 0 auto;white-space:nowrap;font-family:inherit;font-size:12.5px;font-weight:600;
+    padding:7px 14px;border-radius:99px;border:1px solid var(--line);
+    background:#fff;color:var(--muted);cursor:pointer;transition:.2s;
+  }
+  .chip:hover{border-color:#D9C4A9;color:var(--ink);}
+  .chip.active{
+    background:linear-gradient(135deg,#C1443A,#B93A2B);color:#fff;border-color:transparent;
+    box-shadow:0 8px 16px -8px rgba(193,68,58,.9);
+  }
+
+  /* ---------- 卡片 ---------- */
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    box-shadow:0 24px 50px -28px rgba(90,60,30,.55);animation:fadeUp .38s ease;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+  .card-head{
+    position:relative;overflow:hidden;padding:22px 24px;color:#fff;
+    background:linear-gradient(120deg,#8E2F27 0%,#C1443A 48%,#D0703C 100%);
+  }
+  .card-head::after{
+    content:"";position:absolute;right:-50px;top:-70px;width:190px;height:190px;
+    border-radius:50%;background:rgba(255,255,255,.09);
+  }
+  .card-head::before{
+    content:"⚽";position:absolute;right:22px;bottom:-20px;font-size:84px;opacity:.13;line-height:1;
+  }
+  .head-row{position:relative;z-index:1;display:flex;align-items:center;gap:16px;}
+  .st-num{
+    font-size:38px;font-weight:800;line-height:1;letter-spacing:-.03em;
+    font-variant-numeric:tabular-nums;opacity:.92;text-shadow:0 2px 10px rgba(0,0,0,.15);
+  }
+  .card-head h2{margin:0;font-size:21px;letter-spacing:.04em;}
+  .food-tag{
+    display:inline-block;margin-top:7px;font-size:12px;padding:3px 11px;border-radius:99px;
+    background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.38);
+  }
+
+  .body{padding:22px 24px 26px;}
+
+  /* 寻味链接 */
+  .link-quote{
+    margin:0 0 24px;padding:16px 18px;border-radius:0 14px 14px 0;
+    background:#FFF8EF;border-left:4px solid var(--gold);
+  }
+  .quote-label{font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--gold);}
+  .link-quote p{margin:8px 0 0;font-size:14.5px;line-height:1.9;color:#4A3B2E;}
+
+  /* 小标题 */
+  .sec-title{
+    display:flex;align-items:center;gap:8px;margin:0 0 13px;
+    font-size:13.5px;letter-spacing:.16em;color:var(--red);font-weight:800;
+  }
+  .sec-title::before{
+    content:"";width:5px;height:16px;border-radius:3px;
+    background:linear-gradient(#C1443A,#D89B4A);
+  }
+
+  /* 任务格 */
+  .tasks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
+  .task{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#FDFBF7;}
+  .t-label{
+    display:inline-block;margin-bottom:8px;padding:3px 11px;border-radius:99px;
+    font-size:11.5px;font-weight:800;letter-spacing:.06em;
+  }
+  .t-warm{background:#FDF0DC;color:#B57A22;}
+  .t-basic{background:#FDECEA;color:#B93A2B;}
+  .t-adv{background:#E9F2EC;color:#2F6B4C;}
+  .t-relax{background:#EDEBF6;color:#5C5192;}
+  .task p{margin:0;font-size:13.5px;line-height:1.8;color:#4A3B2E;}
+
+  /* 数学眼睛 */
+  .math-box{
+    margin-bottom:20px;padding:16px 18px;border-radius:14px;
+    background:linear-gradient(135deg,#F1F7F3,#EAF3EE);border:1px solid #D5E6DC;
+  }
+  .math-box h3{margin:0 0 8px;font-size:14px;color:#2F6B4C;letter-spacing:.1em;}
+  .math-box p{margin:0;font-size:13.5px;line-height:1.85;color:#3D5147;}
+
+  /* 示意图 */
+  .diagram-box{
+    margin:0 0 18px;border:1px solid var(--line);border-radius:16px;
+    background:#FEFCF8;padding:14px 16px 10px;
+  }
+  .diagram-box.math{background:#F7FBF8;border-color:#D5E6DC;}
+  .diagram-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+  .diagram-label{font-size:11.5px;font-weight:800;letter-spacing:.16em;color:var(--muted);}
+  .diagram-box.math .diagram-label{color:var(--green);}
+  .diagram-hint{font-size:11px;color:#C4B4A3;}
+  .diagram-svg{width:100%;display:flex;justify-content:center;}
+  .diagram-svg svg{width:100%;max-width:560px;height:auto;display:block;}
+
+  /* 今日小问 */
+  .ask-box{
+    margin-bottom:22px;padding:16px 18px;border-radius:14px;
+    background:#FFF9F3;border:1px dashed #E8D5BE;
+  }
+  .ask-box h3{margin:0 0 8px;font-size:14px;color:#B57A22;letter-spacing:.1em;}
+  .ask-box .q{margin:0 0 12px;font-size:13.5px;line-height:1.8;color:#5B4A3A;}
+  .ask-box label{display:block;font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.06em;}
+  textarea{
+    width:100%;min-height:84px;resize:vertical;font-family:inherit;
+    font-size:13.5px;line-height:1.75;color:var(--ink);
+    padding:11px 13px;border:1px solid #E8D5BE;border-radius:10px;background:#fff;
+    outline:none;transition:.2s;
+  }
+  textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(216,155,74,.16);}
+  textarea::placeholder{color:#C4B4A3;}
+
+  /* 评价表 */
+  .rating{border-top:1px solid var(--line);padding-top:18px;}
+  .rating-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
+  .rating-list label{
+    display:flex;align-items:center;gap:9px;padding:9px 15px;border-radius:11px;
+    border:1px solid var(--line);background:#fff;font-size:13px;cursor:pointer;transition:.18s;
+  }
+  .rating-list label:hover{border-color:#D9C4A9;}
+  .rating-list input{
+    appearance:none;-webkit-appearance:none;margin:0;width:18px;height:18px;flex:0 0 auto;
+    border:1.5px solid #D6C3AB;border-radius:5px;position:relative;cursor:pointer;transition:.15s;background:#fff;
+  }
+  .rating-list input:checked{background:var(--green);border-color:var(--green);}
+  .rating-list input:checked::after{
+    content:"✓";position:absolute;inset:0;display:grid;place-items:center;
+    color:#fff;font-size:12px;font-weight:800;
+  }
+  .rating-list label:has(input:checked){border-color:#BEDCCB;background:#F2F9F5;}
+
+  /* 底部翻页 */
+  .pager{
+    position:fixed;left:0;right:0;bottom:0;z-index:20;
+    display:flex;justify-content:center;gap:12px;
+    padding:14px 16px calc(14px + env(safe-area-inset-bottom));
+    background:linear-gradient(to top,rgba(251,246,238,.99),rgba(251,246,238,.86));
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-top:1px solid rgba(234,223,208,.9);
+  }
+  .pager button{
+    font-family:inherit;font-size:14px;font-weight:700;
+    padding:11px 28px;border-radius:99px;cursor:pointer;transition:.2s;
+    border:1px solid var(--line);background:#fff;color:var(--ink);
+  }
+  .pager button:hover:not(:disabled){border-color:var(--red);color:var(--red);}
+  .pager button.primary{
+    border-color:transparent;color:#fff;
+    background:linear-gradient(135deg,#C1443A,#B93A2B);
+    box-shadow:0 10px 20px -8px rgba(193,68,58,.75);
+  }
+  .pager button.primary:hover:not(:disabled){color:#fff;filter:brightness(1.07);}
+  .pager button:disabled{opacity:.38;cursor:not-allowed;}
+
+  @media (max-width:640px){
+    .app{padding:16px 12px 104px;}
+    .tasks{grid-template-columns:1fr;}
+    .body{padding:18px 16px 22px;}
+    .card-head{padding:18px 18px;}
+    .st-num{font-size:30px;}
+    .card-head h2{font-size:18px;}
+    .brand h1{font-size:16px;}
+    .brand p{font-size:10.5px;}
+    .progress-bar{width:96px;}
+    .pager button{padding:11px 22px;font-size:13.5px;}
+    .diagram-box{padding:10px 8px 6px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">⚽</div>
+      <div>
+        <h1>寻味顺德</h1>
+        <p>18 站足球闯关任务卡</p>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-text"><span id="curNum">1</span> / 18</div>
+      <div class="progress-bar"><i id="bar"></i></div>
+    </div>
+  </header>
+
+  <nav class="chips" id="chips"></nav>
+  <main id="stage"></main>
+
+  <footer class="pager">
+    <button id="prev">← 上一站</button>
+    <button id="next" class="primary">下一站 →</button>
+  </footer>
+</div>
+
+<script>
+/* ============ 数据 ============ */
+const DATA = [
+  {
+    n:1, name:"第1站 · 掷界外球", short:"掷界外球", food:"陈村粉",
+    link:"第一站——陈村镇，要把足球从手中“送”到准确的位置，像制作陈村粉一样，先把每一个动作做准确，才能开启后面的闯关之旅。",
+    warm:"肩部绕环、手腕踝关节、对墙轻扔球接住 8 次。",
+    basic:"距目标圈 3 米，站在固定点掷球进圈 10 次，记录命中次数。",
+    advance:"在 5 米、7 米处设置两个目标圈，从 P1、P2 两个投掷点分别完成 10 次，比较命中率。",
+    relax:"肩部、手臂拉伸与抖动放松。",
+    math:"在地上标出投掷点“·”和落点圈“○”，记录圈内、圈外次数，并比较多少。",
+    check:["能完成规范掷球动作","能准确标出点并记录数据","能遵守投掷安全距离"]
+  },
+  {
+    n:2, name:"第2站 · 脚背正面推球", short:"脚背推球", food:"凤城鱼皮角",
+    link:"鱼皮角的外皮薄而有韧性，包住馅料后还要保持完整。踢足球也是一样，力量不能太大，方向也不能跑偏——第二站，要学会让足球沿着自己的路线稳稳向前。",
+    warm:"踝关节绕环、脚背轻推球，感受球贴地滚动。",
+    basic:"画 8 米直线，脚背正面推球前进，球偏离直线不超过 0.5 米，完成 3 次并记录最好成绩。",
+    advance:"完成 12 米慢速控球与快速推球各 1 次，比较用时。",
+    relax:"大腿前侧、小腿拉伸。",
+    math:"记录从起点到终点的步数，估算“一步大约多长”，比较步数与距离的关系。",
+    check:["控球方向基本准确","能完成直线运球","能用步数或时间进行简单比较"]
+  },
+  {
+    n:3, name:"第3站 · 变向运球", short:"变向运球", food:"伦教糕",
+    link:"伦教糕入口软糯、弹牙，却又有自己的韧劲。足球运动也不能一味向前，当道路发生变化时，就要学会及时调整。第三站，要让自己的足球灵活、有弹性，遇到转弯也不慌张。",
+    warm:"左右脚交替踩球 30 次，练习脚底控球。",
+    basic:"摆放 3 个标志物形成折线，绕过标志物完成 2 趟。",
+    advance:"摆放 5 个标志物形成“W”形路线，快速运球通过，记录时间和碰倒次数。",
+    relax:"侧弓步压腿。",
+    math:"画出实际运球路线，标出转折点，思考在什么位置进行变向最合适。",
+    check:["变向时能降低重心并控制球","能识别转折点和线段","能根据时间、失误调整动作"]
+  },
+  {
+    n:4, name:"第4站 · S形绕杆", short:"S形绕杆", food:"大良双皮奶",
+    link:"双皮奶看似细腻平滑，做好它却需要耐心和细致。来到大良，也要把足球练得“细腻”起来——绕杆时不能急，要让每一次触球都恰到好处，让足球顺着路线流畅前进。",
+    warm:"慢速带球左右晃动，体验连续变向。",
+    basic:"4 个标志物组成 S 形路线，完成 3 趟，记录最快用时。",
+    advance:"6 个标志物组成紧凑 S 形路线，使用脚外侧连续拨球，记录用时和变向次数。",
+    relax:"大腿内侧、髋部拉伸。",
+    math:"画出 S 形运球路线，结合曲线圆滑转弯的特点，思考怎样运球更流畅。",
+    check:["能连续完成 S 形绕杆","变向动作协调"]
+  },
+  {
+    n:5, name:"第5站 · 两点之间", short:"两点之间", food:"大良炒牛奶",
+    link:"炒牛奶讲究火候，也讲究动作的节奏。足球场上的两个位置之间，也有不同的“走法”。来到这一站，要尝试不同路线，看看哪条路更短，哪条路更适合自己。",
+    warm:"原地高抬腿、快速踩球。",
+    basic:"设置相距 6 米的 A、B 两点，分别沿直线和半圆绕行运球，记录用时。",
+    advance:"将距离调整为 10 米，分别沿直线和半圆绕行运球，记录用时。",
+    relax:"坐地分腿前屈。",
+    math:"比较两条路线的长短与速度，思考直线为什么可能更短却不一定更快。",
+    check:["能根据障碍选择路线","能记录并比较时间、步数"]
+  },
+  {
+    n:6, name:"第6站 · 中心点出发", short:"中心点出发", food:"炸牛奶",
+    link:"炸牛奶外脆内滑，变化就在不同的空间里发生。今天，我们也要从一个中心位置出发，向不同方向寻找自己的路线。一个点，可以连接出许多方向；一个足球，也可以开启许多可能。",
+    warm:"脚尖向八个方向点踩球。",
+    basic:"以 O 为中心，在前后左右 4 个方向设置标志物，依次运球到点并返回，记录总用时。",
+    advance:"增加对角线方向形成 8 个点，按顺时针和逆时针各完成一次并比较。",
+    relax:"扶墙拉伸小腿。",
+    math:"从中心点 O 出发画出射线，模拟圆桌向外的 8 个上菜方向，观察射线分割平面形成的区域并标注方位。",
+    check:["能辨认方向并完成往返运球","能理解中心点与射线","能与家长或同伴合作记录数据"]
+  },
+  {
+    n:7, name:"第7站 · 等距触球点", short:"等距触球点", food:"顺德烧鹅",
+    link:"一只烧鹅要做到皮脆肉嫩，火候需要稳定；足球控球同样需要稳定的节奏。来到这一关，要寻找自己的“最佳触球节奏”，让每一次触球都成为向前迈进的一小步。",
+    warm:"脚底前后拉球、左右拨球。",
+    basic:"沿 8 米直线运球，每步触球一次，记录触球次数。",
+    advance:"沿 12 米直线分别用小步高频、大步低频完成，记录触球次数和时间。",
+    relax:"站立体前屈、腿部放松。",
+    math:"在线段上标出每次触球的位置，观察各点之间的距离是否接近。",
+    check:["能根据速度调整触球频率","能用点表示触球位置","能根据数据解释控球效果"]
+  },
+  {
+    n:8, name:"第8站 · 墙壁三角传球", short:"墙壁三角传球", food:"拆鱼羹",
+    link:"一碗拆鱼羹，把鱼肉、配料和汤汁巧妙地组合在一起。足球传接球也需要多个位置之间的联系。",
+    warm:"对墙轻踢球，用脚内侧停住反弹球 8 次。",
+    basic:"完成“A—墙面B—C”反弹传接，连续成功 5 次。",
+    advance:"传接后快速转身，将球射入简易球门，1 分钟内统计成功串联次数。",
+    relax:"坐位体前屈、下肢放松。",
+    math:"画出 A、B、C 三点并连接，数一数球的运动经过几条线段，说明传球路线的变化。",
+    check:["传球方向和力度基本合适","能完成停球衔接","能用三点两线表达传接路线"]
+  },
+  {
+    n:9, name:"第9站 · 数据条形图", short:"数据条形图", food:"酿鲮鱼",
+    link:"鲮鱼最考验的是精准和完整。这一关，也要像完成一道精细的顺德菜一样，把自己的运动表现认真记录下来。今天不只比谁练得好，还要用数据告诉自己进步了多少。",
+    warm:"开合跳、高抬腿。",
+    basic:"完成 10 米直线运球计时、对墙指定区域传球 10 次，记录成绩。",
+    advance:"增加 1 分钟踩球次数和 S 形绕杆计时，共记录 4 项数据。",
+    relax:"全身抖动、深呼吸。",
+    math:"记录成绩，与之前的数据进行对比，判断进步幅度。",
+    check:["数据记录真实完整"]
+  },
+  {
+    n:10, name:"第10站 · 运球网络", short:"运球网络", food:"凤城酿节瓜",
+    link:"节瓜可以装进不同的馅料，形成一道完整的美食；足球场上的一个个点，也可以连接成不同的路线和空间。",
+    warm:"带球绕地面圆圈慢跑。",
+    basic:"摆放 4 个点组成四边形，依次运球绕行一圈。",
+    advance:"摆放 6 个点组成六边形，分别沿边线和对角线穿插运球，记录用时并比较路线长度。",
+    relax:"大腿后侧拉伸。",
+    math:"比较沿边线与沿对角线运球的路程长短，说说你的发现。",
+    check:["能按指定路线控球","能正确识别图形要素","能比较不同路线的长短与难度"]
+  },
+  {
+    n:11, name:"第11站 · 多方向射线传球", short:"多方向射线传球", food:"均安蒸猪",
+    link:"一道均安蒸猪需要把每一个环节都处理好，足球传球也是如此。面对不同方向的目标，要学会判断方向、控制力量、准确出球。",
+    warm:"左右脚交替横向拨球。",
+    basic:"在墙上设置左、中、右 3 个目标圈，每个方向传球 5 次，统计命中次数。",
+    advance:"设置 5 个不同高度和方向的目标圈，计算各方向命中率。",
+    relax:"肩部绕环、手臂放松。",
+    math:"以自己为起点画出 3 条射线，比较不同射线的方向和夹角大小。",
+    check:["能根据目标调整脚型和力度","能准确记录命中率","能用方向、夹角描述传球路线"]
+  },
+  {
+    n:12, name:"第12站 · 路径规划", short:"路径规划", food:"均安鱼饼",
+    link:"鱼饼可以煎、可以煮，不同的做法都有自己的路线。足球场上遇到障碍也是一样：最短的路，不一定就是最好的路。这一关，要找到属于自己的最佳路线。",
+    warm:"快速踏步、转体。",
+    basic:"设置起点、终点和 3 个障碍物，分别尝试直线硬闯、左侧半圆绕行。",
+    advance:"增加右侧半圆绕行，记录三条路线的时间和碰倒次数，选出最优路线。",
+    relax:"小腿按摩、踝关节放松。",
+    math:"画出至少两条路线，比较路线长度、障碍数量和完成效果，说明为什么最短路线可能不是最优路线。",
+    check:["能结合障碍规划路线","能用数据说明选择","能主动修正运球策略"]
+  },
+  {
+    n:13, name:"第13站 · 对称站位", short:"对称站位", food:"顶骨大鳝",
+    link:"顶骨大鳝是顺德传统宴席上的一道硬菜，讲究整体协调。足球场上，队员的位置也需要彼此呼应。来到这里，要观察左右位置，找到平衡、对应、协调的站位。",
+    warm:"与家长或同伴相距 5 米互相抛接球。",
+    basic:"以 O 为中心，分别在左右 3 米处设置 A、B 点，从 A 运球到 B 并射门。",
+    advance:"家长或同伴缓慢移动，练习根据中心点变化调整站位。",
+    relax:"腿部轻拍、拉伸。",
+    math:"画出 A、O、B 三点，用步数或标志物测量 AO 与 OB 是否相等，判断是否形成对称关系。",
+    check:["能保持合理练习距离","能根据同伴位置调整站位","能用对称和距离表达观察结果"]
+  },
+  {
+    n:14, name:"第14站 · 个人挑战赛", short:"个人挑战赛", food:"乐从鱼腐",
+    link:"鱼腐柔软多孔，却很能“吸住”汤汁；经过前面 13 关的练习，也已经积累了自己的“足球能量”。来到乐从，这一关要把之前学过的本领拿出来，看看自己的能力究竟增长了多少。",
+    warm:"原地高抬腿。",
+    basic:"完成颠球和 5 米射门各 10 次，记录最多颠球数和进球数。",
+    advance:"增加 10 米折返运球，记录完成时间。",
+    relax:"坐位体前屈、深呼吸。",
+    math:"将本次成绩与第 9 课时成绩进行相减，判断是进步还是退步，并写出原因。",
+    check:["能独立完成测试","能正确计算差值","能根据结果提出下一步练习计划"]
+  },
+  {
+    n:15, name:"第15站 · 斜线传球与直线跑位", short:"斜线传球与直线跑位", food:"顺德鱼生",
+    link:"顺德鱼生讲究鱼片与各种配料之间的搭配，就像足球场上的传球与跑位：球走一条路线，人走另一条路线，最终在合适的位置相遇。这一关，要让自己的传球和跑位真正“连起来”。",
+    warm:"慢跑 + 转髋练习。",
+    basic:"从 A 点斜线传向墙面 B 点，球反弹至 C 点，沿直线跑到 C 点接球，完成 5 次。",
+    advance:"设置高低两个目标点，比较不同反弹路线的速度和接球难度。",
+    relax:"压肩、下肢拉伸。",
+    math:"画出 A—B—C 路线，区分斜线和直线，并说明不同路线对接球的影响。",
+    check:["能完成传球与跑位衔接","能判断传球路线","能根据接球效果调整传球力度"]
+  },
+  {
+    n:16, name:"第16站 · 直线传球与斜线跑位", short:"直线传球与斜线跑位", food:"顺德腊味煲仔饭",
+    link:"一锅煲仔饭，需要米饭、腊味和火候共同配合，才能形成独特的味道。足球也是如此——传球路线和跑位路线要彼此配合。",
+    warm:"左右横移步、转身练习。",
+    basic:"直线传球到 C 点，再直线跑到 C 点停球，完成 5 次。",
+    advance:"直线传球到 C，再绕过障碍物跑到 C 点停球，比较直线配合和绕障碍后的配合速度。",
+    relax:"大腿内侧拉伸、深呼吸。",
+    math:"画出传球线和跑位线，观察两条线是否相交、平行或形成其他关系。",
+    check:["能根据障碍改变路线","能完成传跑配合","能用线与线的关系解释动作选择"]
+  },
+  {
+    n:17, name:"第17站 · 综合", short:"综合", food:"姜撞奶",
+    link:"姜撞奶看似简单，却需要温度、速度和时机恰到好处。走到最后一站，也不能只会一个动作，而要把前面学过的直线、折线、曲线、传球、跑位和射门全部串起来，完成一次真正的足球挑战。",
+    warm:"原地放松运球，观察场地。",
+    basic:"画 4 米 × 3 米小场地，设置 2 个障碍物，从后场运球，绕过至少 1 个障碍后射门，完成 3 次。",
+    advance:"画 6 米 × 4 米场地，设置 4 个障碍，完成“直线运球—折线变向—曲线绕杆—射门”的连续进攻。",
+    relax:"全身抖动 + 深呼吸。",
+    math:"在小场地上标出起点、传球点、射门点等“点”，画出运球和跑位“线”，用斜线表示经过的“面”。",
+    check:["能完成连续技术组合","设计图中的点、线、面清晰","能根据实际练习修改方案"]
+  },
+  {
+    n:18, name:"第18站 · 期末总结", short:"期末总结", food:"猪杂粥",
+    link:"一碗热腾腾的猪杂粥，是顺德美食之旅的温暖收尾。18 关走到这里，也该停下来看看：我从哪里出发？走过了哪些路线？又成长了多少？",
+    warm:"慢速颠球。",
+    basic:"重测直线运球、对墙传球两个项目。",
+    advance:"增加 S 形绕杆和掷界外球进圈项目，记录本次成绩。",
+    relax:"腿部拉伸、深呼吸。",
+    math:"记录成绩，与之前的数据进行对比，判断进步幅度。",
+    check:["能完成重测并如实记录","能总结收获、发现问题并提出改进目标"]
+  }
+];
+
+/* ============ SVG 绘制辅助 ============ */
+const SW = 440, SH = 176;
+const CLR = {blue:'#3A6EA5', green:'#3E7D5A', orange:'#D89B4A', red:'#C1443A',
+             gray:'#B9A99A', dark:'#5B4A3A', line:'#E0B77C', thin:'#D9C4A9'};
+
+function dSvg(inner, h){
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SW} ${h||SH}" fill="none" preserveAspectRatio="xMidYMid meet">${inner}</svg>`;
+}
+function dLine(x1,y1,x2,y2,c,w,dash){
+  return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c||CLR.line}" stroke-width="${w||2.5}"${dash?` stroke-dasharray="${dash}"`:''} stroke-linecap="round"/>`;
+}
+function dDot(x,y,c,r){
+  return `<circle cx="${x}" cy="${y}" r="${r||5}" fill="${c||CLR.blue}"/>`;
+}
+function dCircle(x,y,r,stroke,fill,sw){
+  return `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill||'none'}" stroke="${stroke||'none'}" stroke-width="${sw===undefined?2.5:sw}"/>`;
+}
+function dTxt(x,y,s,size,c,anchor,weight){
+  return `<text x="${x}" y="${y}" font-size="${size||10}" fill="${c||CLR.dark}" text-anchor="${anchor||'middle'}" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" font-weight="${weight||400}">${s}</text>`;
+}
+function dPanel(x,y,w,h,label,color){
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="#FDFBF7" stroke="#EADFD0"/>`
+    + `<text x="${x+w/2}" y="${y+21}" font-size="11" fill="${color||CLR.green}" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700">${label}</text>`;
+}
+function dTri(x,y,s,c){
+  s = s||6;
+  return `<path d="M${x},${y-s} L${x+s*0.9},${y+s*0.75} L${x-s*0.9},${y+s*0.75} Z" fill="${c||CLR.orange}"/>`;
+}
+function dRect(x,y,w,h,fill,stroke,rx){
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx===undefined?8:rx}" fill="${fill||'none'}" stroke="${stroke||'none'}"/>`;
+}
+
+/* ============ 锻炼示意图 ============ */
+const DRILL = {
+  1: () => dPanel(6,6,208,146,'基础组')
+    + dDot(44,92,CLR.blue,5) + dTxt(44,116,'投掷点',9)
+    + dLine(50,92,152,92,CLR.line,2.5,'5 4')
+    + dTxt(100,82,'3米',9,CLR.gray)
+    + dCircle(176,92,15,CLR.green,'none',2.5)
+    + dTxt(176,122,'目标圈',9)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dDot(262,70,CLR.blue,5) + dTxt(262,60,'P1',9)
+    + dDot(262,120,CLR.blue,5) + dTxt(262,142,'P2',9)
+    + dLine(267,70,388,70,CLR.orange,2)
+    + dLine(267,120,388,120,CLR.orange,2)
+    + dTxt(328,62,'5米',9,CLR.gray)
+    + dTxt(328,134,'7米',9,CLR.gray)
+    + dCircle(400,70,11,CLR.green,'none',2.5)
+    + dCircle(400,120,11,CLR.green,'none',2.5)
+    + dTxt(220,168,'投掷点 → 目标圈：命中次数越多越好',9,CLR.gray),
+
+  2: () => dPanel(6,6,208,146,'基础组')
+    + dDot(44,92,CLR.blue,5) + dTxt(44,116,'起点',9)
+    + dDot(178,92,CLR.green,5) + dTxt(178,116,'终点',9)
+    + dLine(50,92,172,92,CLR.orange,3)
+    + dTxt(111,78,'8米直线',9,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dDot(262,68,CLR.blue,5) + dTxt(262,56,'起点',9)
+    + dDot(398,68,CLR.green,5) + dTxt(398,56,'终点',9)
+    + dLine(268,68,392,68,CLR.blue,2.5)
+    + dTxt(330,56,'12米',9,CLR.gray)
+    + dLine(268,86,392,120,CLR.gray,2,'6 4')
+    + dTxt(330,136,'慢速 / 快速 各 1 次',8.5,CLR.gray)
+    + dTxt(220,168,'脚背正面推球：球不偏离直线',9,CLR.gray),
+
+  3: () => dPanel(6,6,208,146,'基础组')
+    + dLine(38,112,80,62,CLR.orange,2.5) + dLine(80,62,122,112,CLR.orange,2.5) + dLine(122,112,164,62,CLR.orange,2.5)
+    + dDot(38,112,CLR.blue,5) + dTxt(38,132,'起点',8.5)
+    + dTri(80,62,7) + dTri(122,112,7) + dTri(164,62,7)
+    + dTxt(164,132,'终点',8.5,CLR.dark)
+    + dTxt(110,150,'折线 / 3 个标志物',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dLine(250,110,282,64,CLR.orange,2.5) + dLine(282,64,314,110,CLR.orange,2.5)
+    + dLine(314,110,346,64,CLR.orange,2.5) + dLine(346,64,378,110,CLR.orange,2.5)
+    + dLine(378,110,410,64,CLR.orange,2.5)
+    + dDot(250,110,CLR.blue,4.5)
+    + dTri(282,64,6) + dTri(314,110,6) + dTri(346,64,6) + dTri(378,110,6) + dTri(410,64,6)
+    + dTxt(330,150,'W形 / 5 个标志物',8.5,CLR.gray)
+    + dTxt(220,168,'绕过标志物，控制好变向节奏',9,CLR.gray),
+
+  4: () => dPanel(6,6,208,146,'基础组')
+    + `<path d="M30,104 C56,54 86,54 112,104 C138,154 168,154 194,104" stroke="${CLR.orange}" stroke-width="3" fill="none" stroke-linecap="round"/>`
+    + dDot(30,104,CLR.blue,5) + dTxt(34,128,'起点',8.5)
+    + dTri(58,66,6) + dTri(88,58,6) + dTri(122,92,6) + dTri(152,132,6)
+    + dTxt(110,150,'4 个标志物 · S形路线',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + `<path d="M246,102 C270,54 298,54 322,102 C346,150 374,150 398,102" stroke="${CLR.orange}" stroke-width="3" fill="none" stroke-linecap="round"/>`
+    + dDot(246,102,CLR.blue,4.5)
+    + dTri(266,64,5.5) + dTri(290,58,5.5) + dTri(316,82,5.5) + dTri(340,132,5.5) + dTri(366,136,5.5) + dTri(392,112,5.5)
+    + dTxt(330,150,'6 个标志物 · 紧凑 S形',8.5,CLR.gray)
+    + dTxt(220,168,'脚外侧连续拨球，记录变向次数',9,CLR.gray),
+
+  5: () => dPanel(6,6,208,146,'基础组')
+    + dDot(44,88,CLR.blue,5) + dDot(178,88,CLR.green,5)
+    + dTxt(44,112,'A',10.5) + dTxt(178,112,'B',10.5)
+    + dLine(50,88,172,88,CLR.orange,2.5)
+    + dTxt(111,74,'直线 6米',9,CLR.gray)
+    + `<path d="M50,88 Q111,140 172,88" stroke="${CLR.blue}" stroke-width="2" fill="none" stroke-dasharray="5 4"/>`
+    + dTri(111,132,6)
+    + dTxt(110,150,'直线 / 半圆绕行',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dDot(256,88,CLR.blue,5) + dDot(408,88,CLR.green,5)
+    + dTxt(256,112,'A',10.5) + dTxt(408,112,'B',10.5)
+    + dLine(262,88,402,88,CLR.orange,2.5)
+    + dTxt(332,74,'直线 10米',9,CLR.gray)
+    + `<path d="M262,88 Q332,142 402,88" stroke="${CLR.blue}" stroke-width="2" fill="none" stroke-dasharray="5 4"/>`
+    + dTri(332,134,6)
+    + dTxt(330,150,'距离加长再比较',8.5,CLR.gray)
+    + dTxt(220,168,'同一起点终点，走直线与曲线',9,CLR.gray),
+
+  6: () => {
+    let s = '';
+    const dirs = [[0,-48],[48,0],[0,48],[-48,0]];
+    dirs.forEach(p=>{ s += dLine(110,84,110+p[0],84+p[1],CLR.gray,2,'5 4') + dTri(110+p[0],84+p[1],6); });
+    let s2 = '';
+    for(let i=0;i<8;i++){
+      const a = (Math.PI*2/8)*i - Math.PI/2;
+      const x = 330 + 50*Math.cos(a), y = 84 + 46*Math.sin(a);
+      s2 += dLine(330,84,x,y,CLR.gray,2,'5 4') + dTri(x,y,5.5);
+    }
+    return dPanel(6,6,208,146,'基础组')
+      + dDot(110,84,CLR.green,7) + dTxt(110,106,'O',10.5)
+      + s
+      + dTxt(110,150,'前后左右 4 个方向',8.5,CLR.gray)
+      + dPanel(226,6,208,146,'挑战组',CLR.red)
+      + dDot(330,84,CLR.green,7) + dTxt(330,106,'O',10.5)
+      + s2
+      + dTxt(330,150,'8 个方向（含对角线）',8.5,CLR.gray)
+      + dTxt(220,168,'依次运球到点并返回，记录总用时',9,CLR.gray);
+  },
+
+  7: () => dPanel(6,6,208,146,'基础组')
+    + dDot(44,88,CLR.blue,5) + dTxt(44,112,'起点',9)
+    + dDot(178,88,CLR.green,5) + dTxt(178,112,'终点',9)
+    + dLine(50,88,172,88,CLR.blue,2.5)
+    + dTxt(111,74,'8 米直线',9,CLR.gray)
+    + dTxt(110,150,'每步触球一次',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dDot(260,88,CLR.blue,5) + dTxt(260,112,'起点',9)
+    + dDot(400,88,CLR.green,5) + dTxt(400,112,'终点',9)
+    + dLine(266,88,394,88,CLR.blue,2.5)
+    + dTxt(330,74,'12 米直线',9,CLR.gray)
+    + dTxt(330,150,'小步高频 / 大步低频',8.5,CLR.gray)
+    + dTxt(220,168,'触球次数与用时都要记录',9,CLR.gray),
+
+  8: () => dPanel(6,6,208,146,'基础组')
+    + dRect(60,44,100,10,'#A8B5A0','none',3) + dTxt(110,36,'墙面',8.5,CLR.gray)
+    + dDot(44,112,CLR.blue,5) + dTxt(44,132,'A',10.5)
+    + dDot(176,112,CLR.blue,5) + dTxt(176,132,'C',10.5)
+    + dLine(49,106,100,52,CLR.gray,2,'6 4')
+    + dLine(120,52,171,106,CLR.gray,2,'6 4')
+    + dTxt(110,88,'传球路线',8.5,CLR.gray)
+    + dTxt(110,150,'A—墙面B—C 连续 5 次',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dRect(280,44,100,10,'#A8B5A0','none',3) + dTxt(330,36,'墙面',8.5,CLR.gray)
+    + dDot(258,112,CLR.blue,5) + dTxt(258,132,'A',10.5)
+    + dDot(388,112,CLR.blue,5) + dTxt(388,132,'C',10.5)
+    + dLine(263,106,320,52,CLR.gray,2,'6 4')
+    + dLine(340,52,383,106,CLR.gray,2,'6 4')
+    + dRect(396,96,24,18,'none','#5B4A3A',3)
+    + dTxt(330,150,'传接后转身射门',8.5,CLR.gray)
+    + dTxt(220,168,'三点两线，传球路线清清楚楚',9,CLR.gray),
+
+  9: () => dPanel(6,6,208,146,'基础组')
+    + dDot(40,96,CLR.blue,5) + dTxt(40,120,'起点',9)
+    + dDot(140,96,CLR.green,5) + dTxt(140,120,'终点',9)
+    + dLine(46,96,134,96,CLR.blue,2.5)
+    + dTxt(90,82,'10米直线运球',8.5,CLR.gray)
+    + dRect(120,44,70,10,'#A8B5A0','none',3)
+    + dLine(140,60,140,90,CLR.gray,2,'6 4')
+    + dTxt(172,82,'对墙传球10次',8.5,CLR.gray)
+    + dTxt(110,150,'记录成绩',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dTxt(256,52,'① 10米直线运球',8.5,CLR.dark,'start')
+    + dTxt(256,76,'② 对墙指定区域传球',8.5,CLR.dark,'start')
+    + dTxt(256,100,'③ 1分钟踩球次数',8.5,CLR.dark,'start')
+    + dTxt(256,124,'④ S形绕杆计时',8.5,CLR.dark,'start')
+    + dTxt(330,150,'共记录 4 项数据',8.5,CLR.gray)
+    + dTxt(220,168,'把每一次成绩都变成数据',9,CLR.gray),
+
+  10: () => dPanel(6,6,208,146,'基础组')
+    + dRect(52,58,116,68,'none',CLR.orange,0).replace('rx="0"','rx="0" stroke-dasharray="6 4"')
+    + dTri(52,58,6) + dTri(168,58,6) + dTri(52,126,6) + dTri(168,126,6)
+    + dTxt(110,150,'4 个点 → 四边形 · 沿边线',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + (() => {
+        let g = '';
+        const cx=330, cy=84, r=44;
+        const pts=[];
+        for(let i=0;i<6;i++){
+          const a=(Math.PI*2/6)*i - Math.PI/2;
+          pts.push([cx+r*Math.cos(a), cy+r*Math.sin(a)]);
+        }
+        for(let i=0;i<6;i++){
+          const p1=pts[i], p2=pts[(i+1)%6];
+          g += dLine(p1[0],p1[1],p2[0],p2[1],CLR.orange,2.5);
+        }
+        g += dLine(pts[0][0],pts[0][1],pts[3][0],pts[3][1],CLR.blue,2,'6 4');
+        pts.forEach(p=> g += dTri(p[0],p[1],5.5));
+        return g;
+      })()
+    + dTxt(330,150,'6 个点 → 六边形 · 边线+对角线',8.5,CLR.gray)
+    + dTxt(220,168,'比较沿边线与沿对角线的路程长短',9,CLR.gray),
+
+  11: () => dPanel(6,6,208,146,'基础组')
+    + dDot(38,86,CLR.blue,5) + dTxt(38,110,'自己',9)
+    + dLine(44,86,162,58,CLR.gray,2,'6 4')
+    + dLine(44,86,162,86,CLR.gray,2,'6 4')
+    + dLine(44,86,162,114,CLR.gray,2,'6 4')
+    + dRect(162,42,10,86,'#B9A99A','none',3)
+    + dCircle(167,58,9,CLR.red,'none',2)
+    + dCircle(167,86,9,CLR.red,'none',2)
+    + dCircle(167,114,9,CLR.red,'none',2)
+    + dTxt(110,150,'墙上左、中、右 3 个目标圈',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dDot(258,86,CLR.blue,5) + dTxt(258,110,'自己',9)
+    + dRect(376,40,10,90,'#B9A99A','none',3)
+    + dCircle(381,52,8,CLR.red,'none',2)
+    + dCircle(381,72,8,CLR.red,'none',2)
+    + dCircle(381,92,8,CLR.red,'none',2)
+    + dCircle(381,112,8,CLR.red,'none',2)
+    + dCircle(381,132,8,CLR.red,'none',2)
+    + dTxt(330,150,'5 个不同高度和方向',8.5,CLR.gray)
+    + dTxt(220,168,'根据目标调整脚型和力度',9,CLR.gray),
+
+  12: () => dPanel(6,6,208,146,'基础组')
+    + dDot(36,120,CLR.blue,5) + dTxt(36,140,'起点',8.5)
+    + dDot(184,60,CLR.green,5) + dTxt(184,48,'终点',8.5)
+    + dLine(42,118,178,62,CLR.gray,2,'5 4')
+    + `<path d="M42,118 Q110,20 178,62" stroke="${CLR.blue}" stroke-width="2.5" fill="none"/>`
+    + dTri(90,94,6) + dTri(130,82,6) + dTri(152,102,6)
+    + dTxt(110,150,'直线硬闯 / 左侧半圆绕行',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dDot(250,120,CLR.blue,5) + dTxt(250,140,'起点',8.5)
+    + dDot(404,60,CLR.green,5) + dTxt(404,48,'终点',8.5)
+    + dLine(256,118,398,62,CLR.gray,2,'5 4')
+    + `<path d="M256,118 Q330,20 398,62" stroke="${CLR.blue}" stroke-width="2.5" fill="none"/>`
+    + `<path d="M256,118 Q330,152 398,62" stroke="${CLR.red}" stroke-width="2.5" fill="none" stroke-dasharray="6 4"/>`
+    + dTri(300,94,6) + dTri(340,82,6) + dTri(360,102,6)
+    + dTxt(330,150,'增加右侧半圆，比较 3 条路线',8.5,CLR.gray)
+    + dTxt(220,168,'最短的路线，不一定是最优路线',9,CLR.gray),
+
+  13: () => dPanel(6,6,208,146,'基础组')
+    + dDot(110,82,CLR.green,6) + dTxt(110,62,'O',10.5)
+    + dDot(50,82,CLR.blue,5) + dTxt(50,62,'A',10.5)
+    + dDot(170,82,CLR.blue,5) + dTxt(170,62,'B',10.5)
+    + dLine(56,82,104,82,CLR.orange,2,'5 4')
+    + dLine(116,82,164,82,CLR.orange,2,'5 4')
+    + dTxt(80,102,'3米',8.5,CLR.gray) + dTxt(140,102,'3米',8.5,CLR.gray)
+    + dRect(186,72,22,20,'none','#5B4A3A',3)
+    + dTxt(110,150,'A 运球到 B 并射门',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dDot(280,86,CLR.green,6) + dTxt(280,66,'O',10)
+    + dDot(250,86,CLR.blue,5) + dTxt(250,66,'A',10)
+    + `<ellipse cx="380" cy="86" rx="44" ry="36" fill="none" stroke="${CLR.red}" stroke-width="2" stroke-dasharray="5 4"/>`
+    + dTxt(380,90,'B',11,CLR.red)
+    + dTxt(380,140,'同伴缓慢移动',8.5,CLR.gray)
+    + dTxt(330,160,'根据中心点变化调整站位',8.5,CLR.gray)
+    + dTxt(220,174,'观察左右位置，找到平衡与对应',9,CLR.gray),
+
+  14: () => dPanel(6,6,208,146,'基础组')
+    + dDot(50,90,CLR.blue,5) + dTxt(50,112,'颠球',9)
+    + dDot(110,90,CLR.blue,5) + dTxt(110,112,'射门',9)
+    + dRect(160,78,26,22,'none','#5B4A3A',3)
+    + dTxt(110,150,'颠球 10 次 + 5米射门 10 次',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dDot(266,90,CLR.blue,5) + dTxt(266,112,'颠球',9)
+    + dDot(316,90,CLR.blue,5) + dTxt(316,112,'射门',9)
+    + dRect(376,78,26,22,'none','#5B4A3A',3)
+    + dLine(390,136,390,104,CLR.green,2,'6 4')
+    + dDot(390,136,CLR.green,5) + dTxt(390,152,'折返点',8.5)
+    + dTxt(330,58,'10 米折返运球',8.5,CLR.gray)
+    + dTxt(220,174,'把学过本领拿出来，看看增长多少',9,CLR.gray),
+
+  15: () => dPanel(6,6,208,146,'基础组')
+    + dRect(60,44,100,10,'#A8B5A0','none',3) + dTxt(110,36,'墙面',8.5,CLR.gray)
+    + dDot(44,112,CLR.blue,5) + dTxt(44,132,'A',10.5)
+    + dDot(176,112,CLR.blue,5) + dTxt(176,132,'C',10.5)
+    + dLine(50,106,100,52,CLR.gray,2,'6 4')
+    + dLine(120,52,171,106,CLR.gray,2,'6 4')
+    + dTxt(110,150,'A 斜线传向 B，直线跑到 C 接球',8,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dRect(280,44,100,10,'#A8B5A0','none',3) + dTxt(330,36,'高低两个目标点',8.5,CLR.gray)
+    + dDot(258,112,CLR.blue,5) + dTxt(258,132,'A',10.5)
+    + dDot(388,112,CLR.blue,5) + dTxt(388,132,'C',10.5)
+    + dLine(263,106,320,52,CLR.gray,2,'6 4')
+    + dLine(340,52,383,106,CLR.gray,2,'6 4')
+    + dTxt(330,150,'比较不同反弹路线',8.5,CLR.gray)
+    + dTxt(220,174,'球走一条路线，人走另一条路线',9,CLR.gray),
+
+  16: () => dPanel(6,6,208,146,'基础组')
+    + dDot(40,90,CLR.blue,5) + dTxt(40,114,'起点',9)
+    + dDot(180,90,CLR.blue,5) + dTxt(180,114,'C',10)
+    + dLine(46,90,174,90,CLR.blue,2.5)
+    + dTxt(110,76,'直线传球到 C',8.5,CLR.gray)
+    + dTxt(110,150,'再直线跑到 C 点停球',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dDot(260,90,CLR.blue,5) + dTxt(260,114,'起点',9)
+    + dDot(400,90,CLR.blue,5) + dTxt(400,114,'C',10)
+    + dLine(266,90,394,90,CLR.blue,2.5)
+    + dTri(330,124,6)
+    + dTxt(330,150,'绕过障碍物跑到 C 点停球',8.5,CLR.gray)
+    + dTxt(220,174,'传球线和跑位线要彼此配合',9,CLR.gray),
+
+  17: () => dPanel(6,6,208,146,'基础组')
+    + dRect(34,50,150,84,'#F4EFE6','#D9C4A9',6)
+    + dDot(50,112,CLR.blue,5) + dTxt(50,134,'起点',8)
+    + dTri(90,112,7) + dTri(130,82,7)
+    + dRect(160,94,20,16,'none','#5B4A3A',3)
+    + dTxt(110,150,'4m×3m · 2个障碍',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dRect(254,50,150,84,'#F4EFE6','#D9C4A9',6)
+    + dDot(270,112,CLR.blue,5) + dTxt(270,134,'起点',8)
+    + dTri(300,82,6.5) + dTri(330,114,6.5) + dTri(356,74,6.5) + dTri(384,118,6.5)
+    + dRect(378,62,22,16,'none','#5B4A3A',3)
+    + dTxt(330,150,'6m×4m · 4个障碍',8.5,CLR.gray)
+    + dTxt(220,174,'直线 → 折线 → 曲线 → 射门',9,CLR.gray),
+
+  18: () => dPanel(6,6,208,146,'基础组')
+    + dDot(40,100,CLR.blue,5) + dTxt(40,124,'起点',9)
+    + dDot(130,100,CLR.green,5) + dTxt(130,124,'终点',9)
+    + dLine(46,100,124,100,CLR.blue,2.5)
+    + dTxt(85,86,'直线运球',8.5,CLR.gray)
+    + dRect(120,48,66,10,'#A8B5A0','none',3)
+    + dLine(130,64,130,94,CLR.gray,2,'6 4')
+    + dTxt(162,86,'对墙传球',8.5,CLR.gray)
+    + dTxt(110,150,'重测直线运球 + 对墙传球',8.5,CLR.gray)
+    + dPanel(226,6,208,146,'挑战组',CLR.red)
+    + dTxt(256,52,'① 直线运球',8.5,CLR.dark,'start')
+    + dTxt(256,76,'② 对墙传球',8.5,CLR.dark,'start')
+    + dTxt(256,100,'③ S形绕杆',8.5,CLR.dark,'start')
+    + dTxt(256,124,'④ 掷界外球进圈',8.5,CLR.dark,'start')
+    + dTxt(330,150,'记录本次成绩，与之前对比',8.5,CLR.gray)
+    + dTxt(220,174,'18 关走完，看看自己成长了多少',9,CLR.gray)
+};
+
+/* ============ 数学融合任务示意图 ============ */
+const MATH = {
+  1: () => dTxt(95,26,'足球情境',10,CLR.gray,null,700)
+    + dRect(28,62,84,36,'#EAF2FB','#B8D0E8')
+    + dTxt(70,85,'P1 投掷点',9.5,'#2E5C8A')
+    + dLine(114,80,166,80,CLR.orange,3)
+    + `<circle cx="192" cy="80" r="22" fill="${CLR.green}"/>`
+    + `<circle cx="192" cy="80" r="8" fill="none" stroke="#fff" stroke-width="2"/>`
+    + dTxt(192,126,'落点圈',9.5)
+    + dTxt(330,26,'数学抽象',10,CLR.gray,null,700)
+    + dDot(272,80,CLR.orange,7)
+    + dLine(281,80,357,80,CLR.gray,2)
+    + dDot(366,80,CLR.green,7)
+    + dTxt(320,126,'点 = 足球场上的站位',9.5)
+    + dTxt(220,164,'地面标记“点”→ 投掷 → 记录圈内 / 圈外',9,CLR.gray),
+
+  2: () => dTxt(90,26,'实物体验',10,CLR.gray,null,700)
+    + dLine(46,84,150,84,CLR.orange,3.5)
+    + dDot(46,84,CLR.blue,6) + dDot(150,84,CLR.green,6)
+    + dTxt(46,110,'A',11) + dTxt(150,110,'B',11)
+    + dTxt(98,70,'8米直线运球',9,CLR.gray)
+    + dTxt(330,26,'纸上抽象',10,CLR.gray,null,700)
+    + dLine(238,84,418,84,CLR.dark,2.5)
+    + dTxt(238,110,'A',11) + dTxt(418,110,'B',11)
+    + dTxt(328,64,'线段：有两个端点，表示一段确定的距离',9,CLR.dark)
+    + dTxt(220,164,'绳子呈直线 → 沿线运动 → 纸上复刻',9,CLR.gray),
+
+  3: () => dTxt(100,26,'实物：点 + 点之间的线段',9.5,CLR.gray)
+    + dLine(40,110,80,62,CLR.orange,2.5)
+    + dLine(80,62,120,110,CLR.orange,2.5)
+    + dLine(120,110,160,62,CLR.orange,2.5)
+    + dDot(40,110,CLR.green,5) + dDot(80,62,CLR.green,5)
+    + dDot(120,110,CLR.green,5) + dDot(160,62,CLR.green,5)
+    + dTxt(100,142,'点与点相连 → 折线',9,CLR.gray)
+    + dTxt(330,26,'数学提炼：点构成折线',9.5,CLR.gray)
+    + dLine(258,110,300,66,CLR.blue,2.5)
+    + dLine(300,66,342,110,CLR.blue,2.5)
+    + dLine(342,110,384,66,CLR.blue,2.5)
+    + dDot(258,110,CLR.blue,5) + dDot(300,66,CLR.blue,5)
+    + dDot(342,110,CLR.blue,5) + dDot(384,66,CLR.blue,5)
+    + dTxt(330,142,'转折点决定变向位置',9,CLR.gray)
+    + dTxt(220,164,'标志物是拐点 → 身体走出折线 → 绘图提炼',9,CLR.gray),
+
+  4: () => dTxt(105,26,'两条路线对比',9.5,CLR.gray)
+    + `<path d="M35,110 C62,58 92,58 118,110 C144,162 174,162 200,110" stroke="${CLR.gray}" stroke-width="2" fill="none" stroke-dasharray="5 4"/>`
+    + `<path d="M35,96 C62,52 92,52 118,96 C144,140 174,140 200,96" stroke="${CLR.orange}" stroke-width="2.5" fill="none"/>`
+    + dTxt(118,152,'越圆滑 → 运球更流畅',9,CLR.gray)
+    + dTxt(330,26,'数学提炼',9.5,CLR.gray)
+    + dRect(268,58,124,44,'#E9F2EC','#BEDCCB')
+    + dTxt(330,87,'曲线',15,CLR.green,null,800)
+    + dTxt(330,132,'转弯越圆滑 → 运球更流畅',9,CLR.gray)
+    + dTxt(220,164,'体验两种路线 → 画出S形 → 认识曲线',9,CLR.gray),
+
+  5: () => dTxt(100,26,'点 · 直线 · 曲线',9.5,CLR.gray)
+    + dLine(46,78,170,78,CLR.orange,3)
+    + dDot(46,78,CLR.blue,6) + dDot(170,78,CLR.green,6)
+    + dTxt(46,104,'A',11) + dTxt(170,104,'B',11)
+    + dTxt(70,128,'直线：短',9,CLR.orange)
+    + dTxt(150,128,'曲线：绕行',9,CLR.blue)
+    + `<path d="M46,142 Q108,164 170,142" stroke="${CLR.blue}" stroke-width="2" fill="none" stroke-dasharray="5 4"/>`
+    + dRect(256,52,152,56,'#FFF8EF','#E8D5BE')
+    + dTxt(332,76,'更短 ≠ 一定更快',12,'#B57A22',null,800)
+    + dTxt(332,96,'真实运动还受控制、转弯等因素影响',8.5,CLR.gray)
+    + dTxt(220,164,'同一对点，走直线和曲线 → 比较长度与速度',9,CLR.gray),
+
+  6: () => {
+    let rays = '';
+    for(let i=0;i<8;i++){
+      const a = (Math.PI*2/8)*i - Math.PI/2;
+      const x = 108 + 54*Math.cos(a), y = 82 + 50*Math.sin(a);
+      rays += dLine(108,82,x,y,'#E0B77C',2.2);
+    }
+    return rays
+      + dDot(108,82,CLR.green,8)
+      + dTxt(108,150,'8 个方向',9.5,CLR.gray)
+      + dTxt(330,44,'一条射线',9.5,CLR.gray)
+      + dLine(266,62,392,62,CLR.blue,3)
+      + dTxt(330,96,'多条射线把“面”',9.5,CLR.dark)
+      + dTxt(330,114,'分成不同区域',9.5,CLR.dark)
+      + dTxt(220,164,'中心点 O → 8条射线 → 分割场地空间',9,CLR.gray);
+  },
+
+  7: () => {
+    let dots = '';
+    for(let i=0;i<7;i++){
+      dots += dDot(36+i*40,76,CLR.orange,6);
+    }
+    return dLine(36,76,276,76,CLR.line,3)
+      + dots
+      + dTxt(156,52,'触球点',9.5,CLR.gray)
+      + dTxt(156,112,'点与点距离接近',9,CLR.gray)
+      + dRect(298,54,126,48,'#E9F2EC','#BEDCCB')
+      + dTxt(361,76,'等分点',13,CLR.green,null,800)
+      + dTxt(361,96,'触球间距 → 控球节奏',8.5,CLR.gray)
+      + dTxt(220,164,'每次触球标一个点 → 观察点与点的间距',9,CLR.gray);
+  },
+
+  8: () => dLine(60,110,180,44,CLR.orange,3)
+    + dLine(180,44,300,110,CLR.orange,3)
+    + dLine(60,110,300,110,CLR.orange,3)
+    + dDot(60,110,CLR.green,6) + dDot(180,44,CLR.green,6) + dDot(300,110,CLR.green,6)
+    + dTxt(60,132,'A',11) + dTxt(180,32,'B',11) + dTxt(300,132,'C',11)
+    + dRect(330,54,98,34,'#EAF2FB','#B8D0E8')
+    + dTxt(379,76,'A → B → C',10,'#2E5C8A',null,700)
+    + dTxt(379,106,'点连线，线围面',9,CLR.gray)
+    + dTxt(180,152,'3个点 → 3条线段 → 三角形“面”',9,CLR.gray)
+    + dTxt(220,170,'A、B、C三个点 → 连线 → 围成三角形',9,CLR.gray),
+
+  9: () => {
+    const bars = [
+      {x:262,h:56,c:'#A8C5B1'},{x:302,h:82,c:'#7FAF8E'},
+      {x:342,h:66,c:'#A8C5B1'},{x:382,h:96,c:'#5E9475'}
+    ];
+    let b = '';
+    bars.forEach((v,i)=>{
+      b += `<rect x="${v.x}" y="${128-v.h}" width="28" height="${v.h}" rx="4" fill="${v.c}"/>`;
+      b += dTxt(v.x+14,142,['运球','传球','踩球','绕杆'][i],8.5,CLR.gray);
+    });
+    return dTxt(90,26,'用“点”记录数据',9.5,CLR.gray)
+      + dDot(60,64,CLR.orange,7) + dDot(110,84,CLR.orange,7) + dDot(80,110,CLR.green,7)
+      + dTxt(90,150,'用“点”记录，用“面”承载图表',9,CLR.gray)
+      + dTxt(330,26,'成绩变化一目了然',9.5,CLR.gray)
+      + b
+      + dLine(250,128,424,128,CLR.thin,2)
+      + dTxt(220,164,'运动成绩 → 数据点 → 条形统计图',9,CLR.gray);
+  },
+
+  10: () => {
+    let g = '';
+    const cx=140, cy=84, r=48;
+    const pts=[];
+    for(let i=0;i<6;i++){
+      const a=(Math.PI*2/6)*i - Math.PI/2;
+      pts.push([cx+r*Math.cos(a), cy+r*Math.sin(a)]);
+    }
+    for(let i=0;i<6;i++){
+      const p1=pts[i], p2=pts[(i+1)%6];
+      g += dLine(p1[0],p1[1],p2[0],p2[1],CLR.orange,2.5);
+    }
+    g += dLine(pts[0][0],pts[0][1],pts[3][0],pts[3][1],CLR.blue,2.2,'6 4');
+    pts.forEach(p=> g += dDot(p[0],p[1],CLR.green,5));
+    return g
+      + dTxt(140,150,'边线 / 对角线',9,CLR.gray)
+      + dRect(262,58,150,46,'#E9F2EC','#BEDCCB')
+      + dTxt(337,78,'比较路线长短',12,CLR.green,null,800)
+      + dTxt(337,96,'多边形 = 顶点 + 边线 + 面',8.5,CLR.gray)
+      + dTxt(337,140,'顶点是点 → 边线是线 → 围成面',9,CLR.gray)
+      + dTxt(220,168,'比较沿边线与沿对角线的路程长短',9,CLR.gray);
+  },
+
+  11: () => dLine(70,86,190,50,CLR.orange,2.5)
+    + dLine(70,86,190,86,CLR.orange,2.5)
+    + dLine(70,86,190,122,CLR.orange,2.5)
+    + dDot(70,86,CLR.green,7)
+    + dTxt(70,112,'起点',9)
+    + dTxt(140,150,'3 条传球方向',9,CLR.gray)
+    + dLine(268,124,420,124,'#3A6EA5',3)
+    + dLine(268,124,380,66,'#3A6EA5',3)
+    + dTxt(302,116,'∠',15,CLR.red)
+    + dTxt(344,150,'夹角不同 → 覆盖空间不同',9,CLR.gray)
+    + dTxt(220,168,'同一起点 → 多条射线 → 比较方向与夹角',9,CLR.gray),
+
+  12: () => dLine(50,62,390,62,CLR.orange,2.5)
+    + `<path d="M50,62 Q220,156 390,62" stroke="${CLR.blue}" stroke-width="2.5" fill="none"/>`
+    + dDot(50,62,CLR.green,6) + dDot(390,62,CLR.green,6)
+    + dTxt(50,84,'起点',9) + dTxt(390,84,'终点',9)
+    + dTxt(120,52,'直线最短',9,CLR.red)
+    + dTxt(220,112,'最优 ≠ 最短',15,'#B57A22',null,800)
+    + dTxt(220,136,'综合：长度 + 障碍 + 完成效果',9,CLR.gray)
+    + dTxt(220,164,'同一场地 → 多条路线 → 用数据选择',9,CLR.gray),
+
+  13: () => dLine(60,86,380,86,CLR.orange,3)
+    + dLine(220,40,220,134,CLR.red,2,'6 4')
+    + dDot(60,86,CLR.blue,7) + dDot(220,86,CLR.green,8) + dDot(380,86,CLR.blue,7)
+    + dTxt(60,110,'A',11) + dTxt(220,110,'O',11) + dTxt(380,110,'B',11)
+    + dTxt(220,32,'对称轴',9.5,CLR.red)
+    + dTxt(140,136,'AO = OB',11,CLR.dark,null,700)
+    + dTxt(310,136,'对称站位：左右距离相等',9.5,CLR.dark)
+    + dTxt(220,164,'A、O、B 三点 → 判断是否对称',9,CLR.gray),
+
+  14: () => {
+    let ticks = '';
+    [0,10,20,30,40,50].forEach((v,i)=>{
+      const x = 60 + i*68;
+      ticks += dLine(x,72,x,88,CLR.thin,2);
+      ticks += dTxt(x,108,v,9,CLR.gray);
+    });
+    return dLine(60,80,400,80,CLR.gray,2.5)
+      + ticks
+      + `<circle cx="128" cy="80" r="13" fill="${CLR.blue}"/>`
+      + dTxt(128,84,'前',10,'#fff')
+      + `<circle cx="332" cy="80" r="13" fill="${CLR.green}"/>`
+      + dTxt(332,84,'今',10,'#fff')
+      + dTxt(230,142,'今 − 前 = 差值',13,CLR.dark,null,800)
+      + dTxt(220,166,'用数据回答：进步了吗？为什么？',9,CLR.gray);
+  },
+
+  15: () => dLine(60,120,190,44,CLR.orange,3)
+    + dLine(190,44,320,120,CLR.orange,3)
+    + dLine(60,120,320,120,CLR.blue,2.5,'6 4')
+    + dDot(60,120,CLR.green,6) + dDot(190,44,CLR.green,6) + dDot(320,120,CLR.green,6)
+    + dTxt(60,142,'A',11) + dTxt(190,32,'B',11) + dTxt(320,142,'C',11)
+    + dTxt(108,72,'斜线',9,CLR.orange)
+    + dTxt(252,72,'斜线',9,CLR.orange)
+    + dTxt(190,112,'直线',9,CLR.blue)
+    + dTxt(372,70,'不同线条组合',9,CLR.green)
+    + dTxt(372,88,'→ 不同传跑效果',9,CLR.green)
+    + dTxt(220,166,'同一组点位 → 体验两种线 → 比较接球效果',9,CLR.gray),
+
+  16: () => dLine(60,120,190,50,CLR.orange,3)
+    + dLine(60,50,190,120,CLR.blue,3)
+    + dDot(125,85,CLR.red,7)
+    + dTxt(125,140,'相交',9.5,CLR.dark)
+    + dLine(260,70,410,70,CLR.orange,3)
+    + dLine(260,110,410,110,CLR.blue,3)
+    + dTxt(335,134,'平行',9.5,CLR.dark)
+    + dTxt(330,36,'线与线的位置关系，可以帮助解释传跑选择',9,CLR.gray)
+    + dTxt(220,166,'传球线 + 跑位线 → 观察两条直线位置关系',9,CLR.gray),
+
+  17: () => dRect(30,42,180,100,'#F4EFE6','#D9C4A9',8)
+    + dDot(52,116,CLR.blue,6)
+    + dDot(110,72,CLR.orange,6)
+    + dDot(168,112,CLR.orange,6)
+    + dLine(52,116,110,72,CLR.red,2.5)
+    + dLine(110,72,168,112,CLR.red,2.5)
+    + dRect(172,100,22,18,'none','#5B4A3A',3)
+    + dTxt(120,158,'点 → 线 → 面：一次完整进攻',9,CLR.gray)
+    + dTxt(330,52,'点：关键位置',10,CLR.orange,null,700)
+    + dTxt(330,78,'线：运球、跑位路线',10,CLR.red,null,700)
+    + dTxt(330,104,'面：场地空间',10,CLR.green,null,700)
+    + dRect(268,118,148,30,'#E9F2EC','#BEDCCB')
+    + dTxt(342,138,'完整闭环：点 → 线 → 面',9,CLR.green)
+    + dTxt(220,170,'一次完整进攻 → 把点、线、面全部提取出来',9,CLR.gray),
+
+  18: () => dLine(40,140,300,140,CLR.thin,2)
+    + dLine(40,30,40,140,CLR.thin,2)
+    + `<path d="M60,128 L110,116 L160,96 L210,80 L260,52" stroke="${CLR.orange}" stroke-width="3" fill="none" stroke-linecap="round"/>`
+    + dDot(60,128,CLR.green,6) + dDot(110,116,CLR.green,6) + dDot(160,96,CLR.green,6)
+    + dDot(210,80,CLR.green,6) + dDot(260,52,CLR.green,6)
+    + dTxt(170,162,'数据点串联成“成长曲线”',9,CLR.gray)
+    + dRect(300,54,124,82,'#E9F2EC','#BEDCCB')
+    + dTxt(362,76,'成长记录表',11,CLR.green,null,700)
+    + dTxt(362,98,'对比 · 总结',9,CLR.dark)
+    + dTxt(362,118,'发现问题 · 提出改进',9,CLR.dark)
+    + dTxt(220,170,'汇集18关数据 → 对比全程成长 → 双向复盘',9,CLR.gray)
+};
+
+function buildDrill(n){ return dSvg((DRILL[n]||(()=>''))(), SH); }
+function buildMath(n){ return dSvg((MATH[n]||(()=>''))(), SH); }
+
+/* ============ 逻辑 ============ */
+const chipsEl  = document.getElementById('chips');
+const stageEl  = document.getElementById('stage');
+const curNumEl = document.getElementById('curNum');
+const barEl    = document.getElementById('bar');
+const prevBtn  = document.getElementById('prev');
+const nextBtn  = document.getElementById('next');
+
+const KEY = 'shunde-football-18';
+let store = {};
+try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { store = {}; }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+
+let current = 0;
+
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+}
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function buildChips() {
+  chipsEl.innerHTML = DATA.map((s, i) =>
+    `<button class="chip${i === current ? ' active' : ''}" data-i="${i}">${pad(s.n)} ${esc(s.short)}</button>`
+  ).join('');
+}
+
+function render() {
+  const s = DATA[current];
+  const saved = store[s.n] || { finding: '', checks: [] };
+
+  stageEl.innerHTML = `
+    <article class="card">
+      <div class="card-head">
+        <div class="head-row">
+          <div class="st-num">${pad(s.n)}</div>
+          <div>
+            <h2>${esc(s.name)}</h2>
+            <span class="food-tag">🥢 打卡美食：${esc(s.food)}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="body">
+        <blockquote class="link-quote">
+          <span class="quote-label">寻味链接</span>
+          <p>${esc(s.link)}</p>
+        </blockquote>
+
+        <h3 class="sec-title">今日任务</h3>
+        <div class="tasks">
+          <div class="task"><span class="t-label t-warm">热身 · 3分钟</span><p>${esc(s.warm)}</p></div>
+          <div class="task"><span class="t-label t-basic">基础组 · 必做</span><p>${esc(s.basic)}</p></div>
+          <div class="task"><span class="t-label t-adv">挑战组 · 选做</span><p>${esc(s.advance)}</p></div>
+          <div class="task"><span class="t-label t-relax">放松 · 3分钟</span><p>${esc(s.relax)}</p></div>
+        </div>
+
+        <div class="diagram-box">
+          <div class="diagram-head">
+            <span class="diagram-label">锻炼示意图</span>
+            <span class="diagram-hint">基础组 / 挑战组</span>
+          </div>
+          <div class="diagram-svg">${buildDrill(s.n)}</div>
+        </div>
+
+        <div class="math-box">
+          <h3>🔢 数学融合任务 · 3分钟</h3>
+          <p>${esc(s.math)}</p>
+        </div>
+
+        <div class="diagram-box math">
+          <div class="diagram-head">
+            <span class="diagram-label">数学融合任务示意图</span>
+            <span class="diagram-hint">点 · 线 · 面</span>
+          </div>
+          <div class="diagram-svg">${buildMath(s.n)}</div>
+        </div>
+
+        <div class="ask-box">
+          <h3>💡 今日小问</h3>
+          <p class="q">结合今天的数学任务，说说你发现了什么？</p>
+          <label for="finding">我的发现：</label>
+          <textarea id="finding" placeholder="写下你的发现……">${esc(saved.finding || '')}</textarea>
+        </div>
+
+        <div class="rating">
+          <h3 class="sec-title">评价项目 · 星级表（自评 + 家长评）</h3>
+          <ul class="rating-list">
+            ${s.check.map((c, i) => `
+              <li><label>
+                <input type="checkbox" data-i="${i}" ${(saved.checks || []).includes(i) ? 'checked' : ''}>
+                <span>${esc(c)}</span>
+              </label></li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    </article>
+  `;
+
+  const ta = document.getElementById('finding');
+  ta.addEventListener('input', () => {
+    const rec = store[s.n] || (store[s.n] = { finding: '', checks: [] });
+    rec.finding = ta.value;
+    save();
+  });
+
+  stageEl.querySelectorAll('.rating-list input').forEach(inp => {
+    inp.addEventListener('change', () => {
+      const rec = store[s.n] || (store[s.n] = { finding: '', checks: [] });
+      const idx = Number(inp.dataset.i);
+      rec.checks = rec.checks || [];
+      if (inp.checked) { if (!rec.checks.includes(idx)) rec.checks.push(idx); }
+      else { rec.checks = rec.checks.filter(x => x !== idx); }
+      save();
+    });
+  });
+
+  curNumEl.textContent = s.n;
+  barEl.style.width = ((current + 1) / DATA.length * 100) + '%';
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === DATA.length - 1;
+  nextBtn.textContent = current === DATA.length - 1 ? '已完成全部 ✦' : '下一站 →';
+
+  chipsEl.querySelectorAll('.chip').forEach((c, i) => c.classList.toggle('active', i === current));
+  const activeChip = chipsEl.querySelector('.chip.active');
+  if (activeChip) activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+chipsEl.addEventListener('click', e => {
+  const btn = e.target.closest('.chip');
+  if (!btn) return;
+  current = Number(btn.dataset.i);
+  render();
+});
+
+prevBtn.addEventListener('click', () => { if (current > 0) { current--; render(); } });
+nextBtn.addEventListener('click', () => { if (current < DATA.length - 1) { current++; render(); } });
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'TEXTAREA') return;
+  if (e.key === 'ArrowLeft') prevBtn.click();
+  if (e.key === 'ArrowRight') nextBtn.click();
+});
+
+let tX = 0, tY = 0;
+document.addEventListener('touchstart', e => {
+  tX = e.touches[0].clientX; tY = e.touches[0].clientY;
+}, { passive: true });
+document.addEventListener('touchend', e => {
+  if (e.target.closest('textarea')) return;
+  const dx = e.changedTouches[0].clientX - tX;
+  const dy = e.changedTouches[0].clientY - tY;
+  if (Math.abs(dx) > 75 && Math.abs(dx) > Math.abs(dy) * 1.6) {
+    dx < 0 ? nextBtn.click() : prevBtn.click();
+  }
+}, { passive: true });
+
+buildChips();
+render();
+</script>
+</body>
+</html>
