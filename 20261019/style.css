@@ -1,0 +1,1788 @@
+ul,li,p {list-style: none; margin: 0px;padding: 0px}
+*{
+    margin: 0px;padding: 0px
+}
+.body-bg {
+    background: #eeeeee;
+}
+.page-title {
+    color:#655c5a;
+    font-size: 20px;
+}
+
+
+.line-dashed {
+    padding-top: 10px;
+    border-top: 1px dashed #CCCCCC;
+}
+.control-label {
+    margin-top: 1px;
+    margin-bottom: 0;
+    padding-top: 7px;
+    font-weight: 400;
+}
+.del-btns {
+    padding-left: 10px;
+}
+.btn-half {
+    display: block;
+    width: 50%;
+}
+
+.login-content {
+    border-top:3px solid #45b7af ;
+    background-color: #fff;
+    width: 400px;
+    margin: 40px auto 10px;
+    padding: 20px 30px 30px;
+    overflow: hidden;
+    position: relative;
+}
+.display-hide, .display-none {
+    display: none;
+}
+.input-height {
+    height: 40px;
+}
+.form-title {
+    text-align: center;
+    position: relative;
+    height: 40px;
+}
+.form-title .login-title {
+    background: #FFFFFF;
+    display: block;
+    position: absolute;
+    width: 80px;
+    margin-left: -40px;
+    left: 50%;
+    z-index: 1;
+    color: #fb8d50;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 40px;
+}
+.bg-line {
+    height: 1px;
+    width: 100%;
+    top:50%;
+    z-index: 0;
+    border-top: 1px dashed #cdcdcd;
+    position: absolute;
+}
+.input-group-addon {
+    cursor:pointer
+}
+.body-title {
+    margin: 2px 0px;
+}
+.middle-line {
+    margin-bottom: 3px;
+    height: 1px;
+    display: inline-block;
+    width: 50px;
+    background: #decebc;
+}
+.progress-checkbox {padding: 0px}
+.progress-checkbox .mt-checkbox {margin-right: 20px}
+.progress-checkbox .mt-checkbox>span.red {
+    background: #e7505a;
+}
+.progress-checkbox .mt-checkbox>span.green {
+    background: #32c5d2;
+}
+.progress-checkbox .mt-checkbox>span.white {
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}
+
+
+.bg-blue {
+    color: #FFFFFF;
+    background: #64c1e0;
+}
+.bg-green {
+    color: #FFFFFF;
+    background: #45b7af;
+}
+
+.bg-yellow {
+    color: #FFFFFF;
+    background: #f3ac54;
+}
+
+.bg-purple {
+    color: #FFFFFF;
+    background: #938dc6;
+}
+.bg-red {
+    color: #FFFFFF;
+    background: #ef5955;
+}
+.bg-white {
+    border: 1px solid #CCCCCC;
+    background: #FFFFFF;
+}
+.btn-circle-50 {
+    border-radius: 50%!important;
+}
+
+.abtn {padding:0px 5px}
+
+
+.image-box {
+    float: left;
+}
+.image-box li {
+    float: left;
+    margin-right: 10px;
+    display: inline;
+    text-align: center;
+}
+
+.image-box li img {
+    max-width: 100%;
+    vertical-align: middle;
+    height: 34px;
+}
+
+.image-box-68 li img {
+    max-width: 100%;
+    vertical-align: middle;
+    height: 68px;
+}
+
+.my-summary ul li {
+    width: 160px;
+    height: 70px;
+    margin: 15px 0 0 15px;
+    display: inline-block;
+    float: left;
+    position: relative;
+    background: #fff;
+    border: 1px solid #eee;
+    list-style: none;
+    list-style-type: none;
+    padding: 5px;
+}
+.my-summary ul li  h3 {
+    padding: 0;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 40px;
+    margin:0;
+}
+.my-summary ul li a{
+    text-decoration: none;
+}
+.my-summary ul li:hover{
+    box-shadow: 0px 0px 10px #ccc;
+}
+.my-summary ul li:hover p{
+
+}
+.my-summary ul li:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 39px;
+    height: 39px;
+    background: url("//static.12301.cn/travelagency/images/icon-flag.png") center center no-repeat;
+    content: " ";
+}
+.my-summary ul li p {
+    font-size: 12px;
+    color: #333;
+    line-height: 17px;
+}
+.my-summary ul li p span{
+    display: inline-block;
+    line-height: 17px;
+    float: left;
+
+}
+.my-summary ul li p i{
+    margin-top: 10px;
+    display: inline-block;
+    width: 35px;
+    height: 17px;
+    border:#f4b191 solid 1px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-style: normal;
+    line-height: 15px;
+    text-align: center;
+    color: #f4b191;
+    float: right;
+    margin-right: 5px;
+}
+.over-back {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: alpha(opacity=50);
+    opacity: .5;
+    position: fixed;
+    z-index: 1302;
+    background-color: #000000;
+}
+
+.common-title a.btn{
+    text-align: center;
+    display: inline-block;
+    text-indent: 0;
+}
+.sd-print ul li {
+    padding:5px 0px ;
+}
+.step-new-url ul li {
+    margin: 5px;
+    float: left;
+    display: inline;
+}
+.print-ulr ul li {
+    padding: 5px 0px;
+}
+.print-bordered>tbody>tr>td, .print-bordered>tbody>tr>th, .print-bordered>tfoot>tr>td, .print-bordered>tfoot>tr>th, .print-bordered>thead>tr>td, .print-bordered>thead>tr>th {
+    border: 1px solid #333;
+    padding:4px 8px ;
+    vertical-align: middle;
+}
+.contract-box {
+    margin: 15px;
+    height: auto;
+    overflow: hidden;
+    border: #ddd solid 1px;
+}
+.contract-tab-list{
+    height: auto;
+    overflow: hidden;
+    padding: 0!important;
+    margin:0!important;
+}
+.contract-tab-list li{
+    line-height: 40px;
+    text-align: center;
+    border-bottom: #ddd solid 1px;
+    border-right: #ddd solid 1px;
+    cursor: pointer;
+}
+.contract-tab-list li:nth-last-child(1){
+    border-bottom: none;
+}
+.contract-tab-list li:hover, .contract-tab-list li.curr{
+    background: #337ab7;
+    color: #fff;
+}
+.contract-content{
+    padding: 0!important;
+    margin: 0!important;
+    position: relative;
+    height: 368px;
+    display: none;
+}
+.contract-content textarea{
+    position: absolute;
+    padding: 20px;
+    border:none;
+    width: 100%;
+    height: 100%;
+}
+.set-step-display {
+    display: none;
+}
+.padbtn {
+    padding: 0px 5px;
+}
+.image-box a {
+    display: block;
+}
+.partner-list li {
+    float: left;
+    display: inline;
+    width: 50%;
+    padding: 5px 10px;
+    line-height: 24px;
+}
+
+.query-list li {
+    margin: 10px;
+    float: left;
+    display: inline;
+    width: 58px;
+    height: 58px;
+}
+.query-list li img{
+    width:58px;
+    height: 58px;
+}
+
+#application-box {
+    font-size: 14px;
+    text-align: left;
+    line-height: 42px;
+}
+.bodr-sty {
+    display: inline-block;
+    font-weight: normal;
+}
+.txt-dec {
+    text-decoration:underline;
+}
+.brdr-bt {
+    padding: 0px 5px;
+    border-bottom: 1px solid #333333;
+}
+.wid-240 {
+    min-width: 240px;
+}
+
+.wid-120 {
+    min-width: 120px;
+}
+
+.wid-40 {
+    min-width: 40px;
+}
+
+.wid-60 {
+    min-width: 60px;
+}
+
+table.ellpisis {
+    table-layout: fixed;
+}
+table.ellpisis tr td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.upload-boxs {
+    position: relative;
+}
+.upload-boxs,.upload-btn{
+    width: 110px;
+}
+.upload-inp{
+    position: absolute;
+    width: 110px;
+    z-index: 99;
+    cursor: pointer;
+    opacity: 0;
+    top:0;
+    left:0;
+    filter: alpha(opacity=0);
+}
+.light-theme {
+    height: 30px;
+}
+.pagination {
+    margin: 0px;
+}
+.login-mobile {
+    background:url("//static.12301.cn/travelagency/images/login_03.png") 5px 8px no-repeat;
+    padding-left: 25px;
+}
+.login-smscode {
+    background:url("//static.12301.cn/travelagency/images/login_06.png") 5px 8px no-repeat;
+    padding-left: 25px;
+}
+.login-btn-style {
+    padding: 5px 10px 5px 20px;
+    width: 110px;
+    font-size: 12px;
+    background:url("//static.12301.cn/travelagency/images/winicon_03.png") 15px 5px no-repeat;
+}
+.query-btn-style {
+    padding: 5px 12px;
+    width: 150px;
+    font-size: 12px;
+}
+.business-icons {
+    display: inline-block;
+    margin-top: 40px;
+    width: 65px;
+    height:55px;
+}
+.business-name {
+    line-height: 24px;
+}
+.business-icon-03 {
+    background:url("//static.12301.cn/travelagency/images/business_03.png") 0px 0px no-repeat;
+}
+.business-icon-05 {
+    background:url("//static.12301.cn/travelagency/images/business_05.png") 0px 0px no-repeat;
+}
+.business-icon-07 {
+    background:url("//static.12301.cn/travelagency/images/business_07.png") 0px 0px no-repeat;
+}
+.business-icon-09 {
+    background:url("//static.12301.cn/travelagency/images/business_09.png") 0px 0px no-repeat;
+}
+.business-icon-11 {
+    background:url("//static.12301.cn/travelagency/images/business_11.png") 0px 0px no-repeat;
+}
+.business-li {
+    width:18.6%;
+    text-align: center;
+    float: left;
+    display: inline;
+    margin-left:1.1%;
+    height: 140px;
+}
+.business-li a {
+    display: block;
+    color: #FFFFFF;
+    text-decoration:none;
+}
+.drop-menu {
+    position:absolute;
+    top: 140px;
+    left: 10px;
+}
+.drop-menu li {
+    color: #655c5a;
+    padding: 20px 0px;
+    border-left:1px dashed #cccccc ;
+    border-bottom:1px dashed #cccccc ;
+
+}
+.drop-menu li a{
+    padding-left: 10px;
+    margin-left: -4px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #655c5a;
+}
+.apply-handle ,.stop-handle{
+    position: relative;
+}
+.apply-handle li a {
+    background:url("//static.12301.cn/travelagency/images/dashed_03.png") 0px 8px no-repeat;
+}
+.stop-handle li a {
+    background:url("//static.12301.cn/travelagency/images/dashed_05.png") 0px 8px no-repeat;
+}
+.form-apply {
+    width: 80%;
+    margin: 0px auto;
+    border-top:3px solid #45b7af ;
+    background-color: #fff;
+}
+.form-box {
+    padding: 0px 50px;
+}
+.form-apply-title {
+    color: #45a6d8;
+}
+
+.tab-active .tab-icon-01 {
+    background:url("//static.12301.cn/travelagency/images/form2_03.png") no-repeat;
+    color:#FFFFFF;
+}
+.tab-icon-02 {
+    background:url("//static.12301.cn/travelagency/images/form2_05.png") no-repeat;
+    color:#FFFFFF;
+}
+.tab-icon-03 {
+    background:url("//static.12301.cn/travelagency/images/form2_07.png") no-repeat;
+    color:#FFFFFF;
+}
+.tab-active .tab-icon-02 {
+    background:url("//static.12301.cn/travelagency/images/form3_05.png") no-repeat;
+}
+.tab-active .tab-icon-03 {
+    background:url("//static.12301.cn/travelagency/images/form3_07.png") no-repeat;
+}
+.active-finish .progress-box{
+    background:url("//static.12301.cn/travelagency/images/form4_03.png") no-repeat;
+}
+.step-title {
+    padding-top:5px;
+    font-size: 12px;
+    text-align: center;
+    color: #decebc;
+}
+.tab-active .tab-icon {
+    background:url("//static.12301.cn/travelagency/images/form_03.png") no-repeat;
+    color:#FFFFFF;
+}
+
+.tab-active .step-title,.active-finish .step-title {
+    color: #f59326;
+}
+.step-tabs {
+    padding-bottom: 20px;
+    border-bottom:1px dashed #CCCCCC;
+}
+.step-tabs li {
+    width:70px;
+    float: left;
+    font-size: 12px;
+}
+.progress-box {
+    margin: 0px auto;
+    display:block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.progress-line {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    float: left;
+    width: 35%;
+}
+.btn-submit {
+    font-size: 12px;
+}
+.btn-submit i {
+    padding-right: 10px;
+}
+.form-lable {
+    color: #555555;
+    font-size: 12px;
+}
+.form-group input{
+    font-size: 12px;
+}
+.input-icon {
+    background:url("//static.12301.cn/travelagency/images/form_10.png") 10px 12px no-repeat;
+    padding: 6px 10px 6px 20px;
+
+}
+.add-input {
+    position: relative;
+}
+.icon-add {
+    background:url("//static.12301.cn/travelagency/images/form_14.png") no-repeat;
+    padding-left: 25px;
+    height: 20px;
+    font-size: 12px;
+    color: #45a6d8;
+}
+.icon-del {
+    background:url("//static.12301.cn/travelagency/images/form_20.png") no-repeat;
+    width: 20px;
+    margin-top: 7px;
+    float: right;
+    height: 20px;
+}
+.input-money {
+    width: 90%;
+    float: left;
+}
+.font-hide {
+    text-indent: -9999px;
+}
+.msg-tips {
+    font-size: 12px;
+    color: #ea0000;
+    font-style: normal;
+}
+
+.tips-note {
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #CCCCCC;
+}
+.btn {
+    font-size: 12px;
+}
+/*3-8*/
+.top-tips {
+    width: 80%;
+    margin: 5px auto;
+}
+.prc-top-box {
+    padding-bottom: 10px;
+    margin: 20px 0px 0px 0px;
+}
+.pro-icon-box {
+    width: 78%;
+    margin: 50px auto 10px auto ;
+}
+.pro-icon {
+    width:55px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    float: left;
+    font-size: 12px;
+    color: #f59326;
+    background: url("//static.12301.cn/travelagency/images/winicon_13.png");
+}
+.pro-line {
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 16%;
+    float: left;
+}
+
+.icon-active {
+    color: #FFFFFF;
+    background: url("//static.12301.cn/travelagency/images/winicon_11.png");
+}
+
+.table th {
+    font-weight:normal;
+    font-size: 12px;
+    color: #333333;
+}
+.table td {
+    font-size: 12px;
+    color: #666666;
+}
+.btn-sm {
+    padding:4px 12px;
+}
+#print-content{
+    background: #FFFFFF;
+}
+.tab-display {
+    display: none;
+}
+.tab-list .tab-active  a {
+    padding: 4px 10px;
+    border-radius:3px!important;
+    color: #FFF;
+    background-color: #45a6d8;
+    border-color: #45a6d8;
+}
+
+/*2017－5-1*/
+.border-box {
+    border: 1px solid #CCCCCC;
+}
+.border-top-no {
+    border-top: 0px;
+}
+.box-border-top {
+    border-top: 1px solid #CCCCCC;
+}
+.business-box {
+    float: left;
+    display: inline;
+    width: 190px;
+    margin: 0px 10px;
+}
+.bus-box-detail dl {
+    margin-bottom: 10px;
+}
+.bus-box-detail dl dt {
+    color: #999999;
+    font-weight: normal;
+}
+.bus-box-detail dl dd {
+    line-height: 24px;
+}
+.business-box .bus-box-title {
+    padding: 5px 10px;
+}
+.business-box .bus-box-detail {
+    padding: 5px 10px;
+    height: 175px;
+}
+.image-box li  {
+    margin-bottom: 10px;
+}
+.image-box-120 li img{
+    max-width: 120px;
+    height: 120px;
+}
+.box-border-line {
+    overflow: hidden;
+    border-left: 1px solid #CCCCCC;
+    margin: 10px;
+    width: 1px;
+    height: 140px;
+}
+.license_info_box {
+
+    line-height: 24px;
+    width: 310px;
+    padding: 10px 20px;
+}
+.file .Upload_file_acceptance{
+    position:absolute;margin-top: 90px;left:40px;width: 80px;height: 40px;
+}
+.file .Upload_file_examination{
+    position:absolute;margin-top: 0px;right:0px;
+}
+.relative{
+    position: relative;
+    display: block;
+}
+.table tr .red{
+    color:red;
+}
+
+
+.common-title a {
+    font-size: 12px;
+    color: #666666;
+}
+.common-title a.curr {
+    color: #337ab7;
+}
+
+.menu-li-title {
+    font-size: 12px;
+    border-bottom:1px solid #ffffff;
+}
+
+/*新UI*/
+
+.bordered {
+    border: 1px solid #ddd;
+}
+.fl {
+    float: left;
+    display: inline;
+}
+
+.fr {
+    float: right;
+    display: inline;
+}
+
+
+.content-box p {
+    padding-top: 5px;
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #444444;
+}
+.portlet-body div {
+    word-wrap: break-word;
+}
+
+.original-print div {
+    word-wrap: break-word;
+}
+.copy-print-licence div {
+    word-wrap: break-word;
+}
+.tab-pane p {
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.content-box p.cl-d {
+    color: #888888;
+}
+.layer-tips {
+    color: #333333;
+}
+a.layer-tips:hover{
+    color: #333333;
+}
+.content-box p .layer-tips {
+    color: #888888;
+}
+.layer-mark {
+    padding: 0px 10px;
+}
+.layer-mark h1 {
+    font-size: 14px;
+    font-weight: bold;
+}
+.layer-mark p {
+    font-size: 12px;
+    padding-bottom: 10px;
+    color: #666666;
+}
+
+.layer-mark textarea {
+    font-size: 12px;
+    color: #666666;
+}
+#file-list .mark-tips ,.content-box p .mark-tips,.content-box .mark-tips {
+    color: #e7505a;
+}
+
+.mark-shin .layui-layer-btn0 {
+    border-color: #1e75c3;
+    background-color: #1e75c3;
+    min-width: 100px;
+    font-size: 12px;
+    border-radius: 4px!important;
+    overflow: hidden;
+}
+.mark-shin .layui-layer-btn1 {
+    border-color: #DEDEE6;
+    background-color: #ffffff;
+    min-width: 100px;
+    font-size: 12px;
+    border-radius: 4px!important;
+    overflow: hidden;
+}
+.content-box .table>tbody>tr>td,.content-box .table>tbody>tr>th,.content-box .table>tfoot>tr>td,.content-box .table>tfoot>tr>th,.content-box .table>thead>tr>td,.content-box .table>thead>tr>th {
+    border-top: none;
+}
+.content-box .table>thead>tr>th {
+    border-bottom: none;
+}
+.checkbox_info>tbody>tr>td, .checkbox_info>tbody>tr>th, .checkbox_info>tfoot>tr>td, .checkbox_info>tfoot>tr>th, .checkbox_info>thead>tr>td, .checkbox_info>thead>tr>th {
+    vertical-align: middle;
+    border-top: none;
+
+}
+.light {
+    background-color: #fff;
+}
+.fz-14 {
+    font-size: 14px;
+}
+
+.bordered {
+    border: 1px solid #ddd;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.form-horizontal {
+    padding-bottom: 10px;
+}
+.none-border{
+    border: none!important;
+}
+.mr-30{
+    margin-right: 30px;
+}
+.ml-30{
+    margin-left: 30px;
+}
+.font-size-20{
+    font-size: 20px;
+}
+.w-100{
+    width: 100px!important;
+}
+.border-bottom td {
+    border-top: none!important;
+    border-bottom:#ddd dashed 1px!important;
+}
+.none-border td {
+    border-top: none!important;
+}
+.print-card {
+    width:420px;
+    height: auto;
+}
+.print-card img {
+    width: 100%;
+    height: auto;
+}
+.sponsor-lately {
+    display: none;
+}
+.print-card .line-spin-fade-loader {
+    margin: 0px auto;
+}
+.loader-line{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    z-index: 999;
+    display: none;
+}
+
+.line-spin-fade-loader > div {
+    background: #337ab7!important;
+}
+
+
+.original-print-licence,.copy-print-licence,.branch-print-licence{
+    font-family: '宋体'!important;
+}
+
+/*分社网点打证*/
+.branch-print-licence {
+    position: relative;
+    width: 1323px;
+    height:909px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.branch-print-01 {
+    position: absolute;
+    left: 237.74px;
+    width: 296px;
+}
+.branch-top-1 {
+    top:141.45px;
+}
+
+.branch-print-02 {
+    position: absolute;
+    left: 857.75px;
+}
+.branch-print-03 {
+    position: absolute;
+    top: 432px;
+    left: 560.88px;
+    width: 296px;
+}
+.branch-print-04 {
+    position: absolute;
+    width: 296px;
+}
+.branch-top-2 {
+    top:496.55px
+}
+.branch-left-1 {
+    left: 304.17px;
+}
+.branch-print-05 {
+    position: absolute;
+    width: 296px;
+    left:802.08px;
+}
+.branch-print-06 {
+    position: absolute;
+    width: 296px;
+    top:583.84px;
+}
+.branch-print-07 {
+    position: absolute;
+    width: 28px;
+    left:881px;
+}
+.branch-print-08 {
+    position: absolute;
+    width: 28px;
+    left:960px;
+}
+.branch-print-09 {
+    position: absolute;
+    width: 28px;
+    left:1033px;
+}
+.branch-top-3 {
+    top:792px
+}
+
+.my-summary ul li.todo_2 h3{
+    color: red;
+}
+#todo .form-horizontal {
+    margin-left: 15px;
+}
+
+
+.my-summary ul li.todo_2:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 39px;
+    height: 39px;
+    background: url("//static.12301.cn/travelagency/images/icon-flag-03.png") center center no-repeat;
+    content: " ";
+}
+.my-summary ul li.todo_1 h3{
+    color: #1e75c3;
+}
+.my-summary ul li.todo_1:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 39px;
+    height: 39px;
+    background: url("//static.12301.cn/travelagency/images/icon-flag-02.png") center center no-repeat;
+    content: " ";
+}
+
+
+.curmbs-tabs {
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    line-height: 50px;
+    background: #fff;
+    padding: 0 20px;
+    box-sizing: content-box;
+    text-align: center;
+}
+
+.curmbs-tabs .tabs a:hover, .curmbs-tabs .tabs a.curr {
+    color: #fff;
+    background: #337ab7;
+}
+
+.curmbs-tabs .tabs {
+    height: auto;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    position: relative;
+}
+.curmbs-tabs .tabs a {
+    font-size: 12px;
+    color: #337ab7;
+    border: #337ab7 solid 1px;
+    border-right: none;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 30px;
+    text-indent: 0;
+    font-weight: normal;
+    float: left;
+}
+
+
+.curmbs-tabs .tabs a:nth-last-child(1){
+    border-right: #337ab7 solid 1px;
+}
+
+.curmbs-tabs .tabs a.tabs-br {
+    border-right: #337ab7 solid 1px;
+}
+
+.curmbs-tabs .tabs a:hover{
+    color:#fff;
+    background: #337ab7;
+}
+.curmbs-tabs .tabs a span{
+    padding: 3px 6px;
+    background-color: #337ab7;
+    position: absolute;
+    top: -5px;
+    left: -10px;
+    display: inline-block;
+    border-radius: 12px !important;
+
+}
+.panel-wrapper a:focus,.panel-wrapper  a:hover {
+    text-decoration: none;
+}
+.panel-wrapper .panel-group .panel {
+    border:0px;
+    border-radius:0px;
+}
+.panel-wrapper .panel-default>.panel-heading {
+    border-radius: 0px;
+    border:none;
+    background-color:#ffffff;
+    line-height: 30px;
+    color: #337ab7;
+    border-left: #337ab7 solid 3px;
+}
+.panel-wrapper .panel-title {
+    font-size: 14px;
+    font-weight: normal;
+}
+.panel-wrapper .panel-title a {
+    display: block;
+}
+.panel-wrapper .panel-body {
+    font-size: 12px;
+    color: #333333;
+}
+.panel-wrapper .cl-d {
+    font-size: 12px;
+    padding-bottom: 5px;
+    color:#666666;
+}
+.panel-wrapper .form-group {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.panel-wrapper .panel-body .thumbnail {
+    margin-bottom: 4px;
+    padding: 1px;
+    border-radius: 0px;
+}
+
+.panel-header {
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    background: #1e75c3;
+    margin-bottom: 10px;
+}
+.panel-licence {
+    color: #666666;
+    font-size: 12px;
+    margin-right: 5px;
+    text-align: right;
+}
+#guide-person .tcdPageCode {
+    margin: 0px auto;
+    float:none;
+}
+
+
+table.sub_table ,table.look_table {
+    border:0px;
+    margin-bottom:0px
+}
+
+table.sub_table>tbody>tr>td ,table.look_table>tbody>tr>td{
+    border: 0px;
+    width: 50%;
+}
+
+table.sub_table>tbody>tr:first-child>td {
+    border-top:1px solid #ddd;
+}
+
+table.sub_table:first-child>tbody>tr:first-child>td {
+    border-top:0;
+}
+table.sub_table>tbody>tr>td:first-child {
+    border-right:1px solid #ddd;
+}
+
+table.look_table>tbody>tr:first-child>td {
+    border-top:1px solid #ddd;
+}
+
+table.look_table:first-child>tbody>tr:first-child>td {
+    border-top:0;
+}
+
+.changeflag td {
+    color: #ea0000;
+}
+
+.overflow-ellipsis {
+    overflow: hidden;
+    height: 99px;
+}
+.show_all {
+    color: #337ab7;
+    text-decoration: underline;
+}
+.todo-list {
+    margin-left: -5px;
+    margin-right: -5px;
+    height:100px;
+    padding-left: 30px;
+    overflow: hidden;
+}
+
+.todo-open {
+    height: auto;
+}
+.todo-list ul li{
+    width: 270px;
+    height: 90px;
+    margin: 10px 5px;
+    padding: 5px;
+    display: inline-block;
+    float: left;
+    position: relative;
+    background: #fff;
+    border: #dedede solid 1px;
+    border-radius: 4px !important;
+}
+.todo-list ul li:hover{
+    box-shadow: 0px 0px 5px #666;
+    border: #337ab7 solid 1px;
+}
+
+.todo-list ul li .index-icon {
+    float: left;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 13px 0px 0px 10px;
+
+}
+
+.todo-list ul li.todo_1 .index-icon {
+    background: url("//static.12301.cn/travelagency/images/index_03.png");
+}
+
+
+.todo-list ul li.todo_2 .index-icon {
+    background: url("//static.12301.cn/travelagency/images/index_08.png");
+}
+
+.todo-list ul li.todo_3 .index-icon {
+    background: url("//static.12301.cn/travelagency/images/index_06.png");
+}
+.todo-list ul li.todo_4 .index-icon {
+    background: url("//static.12301.cn/travelagency/images/index_12.png");
+}
+.todo-list ul li a {
+    display: block;
+    width: 248px;
+    height: 78px;
+    color: #777777;
+}
+
+
+.todo-list ul li .index-right {
+    float: right;
+    text-align: right;
+}
+.todo-list ul li .index-right h3 {
+    margin: 0px;
+    font-weight: bold;
+    padding: 10px;
+}
+#summary_list ul li {
+    float: left;
+    display: inline;
+    margin: 15px 10px 0px 10px;
+    padding-left: 30px;
+    padding-top: 3px;
+}
+#summary_list ul li.apply-icon {
+    background: url("//static.12301.cn/travelagency/images/index_14.png") no-repeat;
+}
+
+#summary_list ul li.record-icon {
+    background: url("//static.12301.cn/travelagency/images/index_16.png") no-repeat;
+}
+
+.box-border {
+    border: #eaeaea solid 1px;
+}
+
+.box-wrapper-title {
+    width: 100%;
+    height: 40px;
+    line-height: 38px;
+    background-color: #fff;
+    border-left: #364860 solid 3px;
+    text-indent: 10px;
+    color: #364860;
+    border-bottom: none;
+}
+.notice-box {
+    margin:0px -5px;
+}
+
+.notice-box-li {
+    margin: 0px 5px;
+    width: 323px;
+    background: #ffffff;
+}
+.news-list {
+    font-size: 12px;
+    padding: 10px;
+    color: #444444;
+}
+.news-list dl {
+    overflow: hidden;
+    line-height:24px;
+    margin-bottom: 10px;
+}
+
+.news-list dl dt {
+    width: 60px;
+    font-weight: normal;
+    float: left;
+}
+.news-list dl dd a {
+    color: #666666;
+}
+
+.news-list dl dd {
+    float: left;
+    width: 240px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.modal-layer-title {
+    color: #1e75c3;
+    font-size: 14px;
+}
+
+.btn-cancel {
+    margin-right: 10px;
+    min-width: 190px;
+    color: #ffffff;
+    background: #4b91cf;
+}
+.btn-cancel.focus, .btn-cancel:focus, .btn-cancel:hover {
+    color: #ffffff;
+    background: #4b91cf;
+}
+.btn-confrim {
+    margin-left: 10px;
+    min-width: 190px;
+}
+.modal-body form  label {
+    color: #666666;
+    font-size: 12px;
+}
+.back-btn {
+    position: relative;
+}
+.todo-tips {
+    position: absolute;
+    padding:0px 5px;
+    top: 0;
+    right: 0;
+    background: #ff0000;
+    color: #ffffff
+}
+
+
+.calendar-content span.calendar_active {
+    background-color: #2e8ded !important
+}
+.calendar-body span:hover, .calendar-months span:hover, .calendar-years span:hover {
+    background-color: #74b1ed !important
+}
+.calendar-content span.calendar_focus {
+    color: #2e8ded;
+}
+.auto-btn {
+    color: #1e75c3;
+}
+.auto-btn.focus, .auto-btn:focus, .auto-btn:hover {
+    color: #1e75c3;
+    outline:none;
+    box-shadow: none;
+}
+.doc_under {
+    font-family: '仿宋_GB2312','FangSong_GB2312'!important;
+    text-decoration: underline;
+}
+.document_book .doc_under {
+    font-size: 26px;
+    text-align: justify;
+    text-indent: 0;
+    display: inline-block;
+}
+.min-width {
+    display: inline;
+}
+.doc-input {
+    width: 100%;
+    outline: none;
+    padding:6px 0px 6px 8px ;
+}
+
+.width50 input {
+    width:50px!important;
+}
+.doc_book .table td {
+    text-align: center;
+    vertical-align: middle;
+    color: #333333;
+    font-size: 14px;
+}
+.document_book {
+    padding: 30px 84px 0px;
+    width: 900px;
+    position: relative;
+    height: 1200px;
+}
+.document_body {
+    font-size: 27px;
+    text-align: justify;
+    font-family: '仿宋_GB2312','FangSong_GB2312'!important;
+}
+.document_body table {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.document_body p {
+    text-indent: 2em;
+    text-align: justify;
+    font-family: '仿宋_GB2312','FangSong_GB2312'!important;
+}
+.document_body .body_header p{
+    text-indent: 0em;
+}
+.document_book .table td {
+    text-align: center;
+    vertical-align: middle;
+    color: #333333;
+    font-size: 27px;
+    font-family: '仿宋_GB2312','FangSong_GB2312'!important;
+}
+.document_book_table .table td {
+    color: #333333;
+    font-size: 27px;
+    font-family: '仿宋_GB2312','FangSong_GB2312'!important;
+}
+.document_book_table .doc_under {
+    font-size: 22px;
+}
+.document_book .document_header {
+    height: auto;
+}
+.document_book .document_content {
+    min-height: 840px;
+    margin: 0px 15px;
+    line-height: 46px;
+}
+.document_book .document_footer {
+    height: 190px;
+    font-size: 27px;
+    font-family: '仿宋_GB2312','FangSong_GB2312'!important;
+}
+.document_book .document_footer  p{
+    font-size: 27px;
+    font-family: '仿宋_GB2312','FangSong_GB2312'!important;
+}
+.document_book .body_header {
+    overflow: hidden;
+}
+.footer_border {
+    padding-top: 20px;
+}
+.document_book .table>tbody>tr>td {
+    padding: 0px 12px;
+    line-height: 46px;
+}
+.document_book .document_header {
+    color: #f25550;
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+
+.document_book .document_nav {
+    margin-bottom:46px;
+}
+
+.document_book .doc_tit {
+    font-family: '宋体','SimSun'!important;
+    font-size: 36px;
+    font-weight: 600;
+}
+.document_book .doc_num {
+    font-family: '仿宋_GB2312','FangSong_GB2312'!important;
+    font-size: 27px;
+    text-align: right;
+}
+
+.document_book_table .table td{
+    font-size: 22px;
+}
+.document_book_table .table>tbody>tr>td {
+    line-height: 37px;
+}
+.document_book_table .document_nav {
+    margin-bottom: 37px;
+}
+
+.document_book_table .document_body {
+    font-size: 22px;
+}
+.document_book_table .document_content {
+    line-height: 44px;
+}
+.doc_border_3 {
+    width: 100%;
+    display: block;
+    font-family: '宋体','SimSun'!important;
+    border-bottom: 3px solid  #f25550;
+}
+.doc_border_1 {
+    width: 100%;
+    margin: 2px 0px;
+    display: block;
+    border-bottom: 1px solid  #f25550;
+}
+.doc_book {
+    line-height: 24px;
+}
+
+.doc_book .document_header {
+    color: #f25550;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.doc_book .chapter {
+    padding-right: 10px;
+}
+.footer_foot p {
+    text-align: right;
+}
+
+.chapter {
+    /*background: url("//static.12301.cn/travelagency/images/chapter.png") no-repeat 20px center;*/
+    background-size: 78%;
+    height: 180px;
+    width: 235px;
+    padding-top: 50px;
+}
+.doc_book .chapter {
+    padding-right: 10px;
+    height: 120px;
+    width: 150px;
+    padding-top: 30px;
+
+}
+
+.error-wrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+.error-wrapper .error {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    margin-top: 60px;
+    background: url("//static.12301.cn/travelagency/images/error_07.png")  center center no-repeat;
+}
+.error-wrapper p {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    color: #888;
+    text-align: center;
+    line-height: 40px;
+}
+
+.error-wrapper a {
+    color: #2e8ded;
+    font-size: 16px;
+}
+
+.error-wrapper .hot-phone {
+    padding-left: 10px;
+    font-size: 16px;
+    margin: 20px 0px;
+    color: #fb8d50;
+}
+.error-oprate {
+    width: 340px;
+    margin: 20px auto;
+}
+
+
+.loading-content {
+    position: fixed;
+    top: 68px;
+    left: 240px;
+    right: 0;
+    bottom: 0;
+    background: rgb(255,255,255,.9);
+    z-index: 999999999;
+}
+
+.loading-content.common {
+    top: 0;
+    left: 0
+}
+
+.loading-content .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -35px;
+    margin-top: -70px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    -webkit-animation: a 2s infinite linear;
+    animation: a 2s infinite linear
+}
+
+.loading-content .dot-1,.loading-content .dot-2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: #5698d2;
+    border-radius: 100%!important;
+    -webkit-animation: b 2s infinite ease-in-out;
+    animation: b 2s infinite ease-in-out
+}
+
+.loading-content .dot-2 {
+    top: auto;
+    bottom: 0;
+    background-color: #1c6db6;
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s
+}
+
+@-webkit-keyframes a {
+    to {
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn)
+    }
+}
+
+@keyframes a {
+    to {
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn)
+    }
+}
+
+@-webkit-keyframes b {
+    0%,to {
+        transform: scale(.1);
+        -webkit-transform: scale(.1)
+    }
+
+    50% {
+        transform: scale(1);
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes b {
+    0%,to {
+        transform: scale(.1);
+        -webkit-transform: scale(.1)
+    }
+
+    50% {
+        transform: scale(1);
+        -webkit-transform: scale(1)
+    }
+}
+
+
+.page-tips-bold {
+    display: none;
+}
+.page-wrapper-tips .page-tips-bold {
+    background: #fcf3b6;
+    height: 32px;
+    display: block;
+    padding-left: 10px;
+    line-height: 32px;
+    position: relative;
+}
+.page-tips-bold .icon {
+    position: absolute;
+    right: 10px;
+    top:8px;
+}
+.page-wrapper-tips .navbar-fixed-top {
+    top:32px;
+}
+
+
+.page-sidebar .page-sidebar-menu > li .nav-item-title{
+    color: #b4bcc8;
+    display: block;
+    position: relative;
+    margin: 0;
+    border: 0;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.punish {
+    display: none;
+}
+.time-input {
+    float: left;
+    width: 13%;
+    position: relative;
+}
+.time-range {
+    float: left;
+    padding-top: 10px;
+    color: #666666;
+}
+.tag_radio {
+    width: 190px;
+    margin: 30px auto;
+}
+#table_list .cl-g td {
+    color: #59b214;
+}
+#table_list .cl-r td {
+    color: #ea0000;
+}
+#departmentTable td a.cl-y {
+    color: #fb8d50;
+}
+
+/*日志*/
+.update-history a{
+    color: #ffffff;
+    text-decoration: underline;
+    text-align: center;
+}
+.update-main-content {
+    padding:20px;
+    font-size:12px;
+    width: 1000px;
+    margin: 0px auto;
+    position: relative;
+}
+.update-header {
+    width: 100%;
+    height: 30px;
+    overflow:hidden;
+}
+.update-header .update-title {
+    width:200px;
+    height: 30px;
+    float: left;
+    margin: 0px;
+    display: inline;
+}
+.go-back-index {
+    float: right;
+    display: inline;
+    width: 85px;
+    text-align: center;
+    height: 28px;
+    line-height: 28px;
+    border: 0px;
+    font-size: 12px;
+    background: #0071c1;
+    color: #fff;
+}
+.update-title {
+    font-size: 24px;
+    font-weight: 700
+}
+.update-date {
+    border-bottom: 1px solid #000000; font-size: 14px; padding-bottom: 5px}
+.history {color:#cadbf3; padding-right: 10px;}
+.update-list { margin-bottom: 10px; overflow: hidden}
+.update-list dt.icon-style { float: left; margin-bottom: 5px; clear: left; font-size: 12px; width: 40px; height: 20px; line-height: 20px; color: #fff; text-align:center; border-radius: 2px;}
+.update-list dt.optimization { background:#00af50 }
+.update-list dt.new {  background:#0071c1}
+.update-list dt.modify { background:#fc6700}
+.update-list dt.del { background:#f1c40f}
+.update-list dd { float: left; display: inline; width: 950px; line-height: 20px; margin-left: 10px; margin-bottom: 5px;}
+.layui-layer-draggable {
+    height: auto!important;
+    background: none!important;
+    box-shadow:none!important;
+}
+.layui-layer-draggable .layui-layer-content {
+    overflow: visible!important;
+    background: none!important;
+}
+.layui-layer-draggable img {
+    width: 100%;
+    height: 100%;
+}
+.tooltip {
+    z-index: 100000000;
+}
+#main-info .new-info, #main-info #saveother {
+    display: none;
+}
+.upload-form {
+    margin-top: 30px;
+}
+.submission_rules {
+    margin-top: 10px;
+    color: #ea0000;
+    line-height: 28px;
+}
