@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>江苏新大方特种设备检测有限公司</title>
+	<style>
+		/* 设置body和html的高度为100%，这样它们就可以占据整个视口 */
+		html, body {
+		    /* height: 100%; */
+		    margin: 0; /* 移除默认的margin */
+		    padding: 0; /* 移除默认的padding */
+		}
+		 
+		/* 设置图片容器的高度和宽度为100%，使其覆盖整个屏幕 */
+		.fullscreen-image {
+		    width: 100%; /* 宽度为100% */
+		    height: 100%; /* 高度为100% */
+		    overflow: hidden; /* 隐藏溢出的部分 */
+		}
+		 
+		/* 设置img标签的宽度和高度也为100%，确保图片填满容器 */
+		.fullscreen-image img {
+		    width: 100%; /* 宽度为100% */
+		    /* height: 100%; /* 高度为100% */ */
+		    /* object-fit: cover; /* 保持图片的宽高比，并覆盖整个容器 */ */
+		}
+	 /* 小图样式 */
+	        .thumbnail {
+	            width: 200px;
+	            cursor: pointer;
+	        }
+	        /* 模态框样式 */
+	        #modal {
+	            display: none;
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background: rgba(0,0,0,0.9);
+	            z-index: 1000;
+	            text-align: center;
+	        }
+	        #modal-img {
+	            max-width: 80%;
+	            max-height: 80%;
+	            margin-top: 5%;
+	        }
+	        .close {
+	            color: white;
+	            font-size: 40px;
+	            position: absolute;
+	            top: 20px;
+	            right: 30px;
+	            cursor: pointer;
+	        }
+	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Image</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="fullscreen-image">
+        <img src="./202610221116.jpg" class="thumbnail" onclick="openModal(this)">
+    </div>
+	  <div id="modal">
+	        <span class="close" onclick="closeModal()">&times;</span>
+	        <img id="modal-img" src="">
+	    </div>
+		<script>
+		        function openModal(img) {
+		            const modal = document.getElementById("modal");
+		            const modalImg = document.getElementById("modal-img");
+		            modal.style.display = "block";
+		            modalImg.src = img.src; // 传递图片路径
+		        }
+		        function closeModal() {
+		            document.getElementById("modal").style.display = "none";
+		        }
+		        // 点击模态框背景关闭
+		        window.onclick = function(event) {
+		            if (event.target === modal) closeModal();
+		        };
+		    </script>
+</body>
+</html>
