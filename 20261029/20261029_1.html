@@ -129,8 +129,8 @@
                     <div data-v-5db27be6="" class="btns">
                         <div data-v-5db27be6="" style="flex: 1 1 0%;"></div><button data-v-5db27be6="" class="van-button van-button--default van-button--normal van-button--plain van-button--hairline van-button--round van-hairline--surround" style="color: rgb(71, 156, 248); border-color: rgb(71, 156, 248);">
                             <div data-v-5db27be6="" class="van-button__content"><span data-v-5db27be6="" class="van-button__text"> 预览 </span></div>
-                        </button><button data-v-5db27be6="" class="van-button van-button--default van-button--normal van-button--plain van-button--hairline van-button--round van-hairline--surround" style="color: rgb(71, 156, 248); border-color: rgb(71, 156, 248);">
-                            <div data-v-5db27be6="" class="van-button__content"><span data-v-5db27be6=""  class="van-button__text">下载 </span></div>
+                        </button><button data-v-5db27be6="" id="downloadBtn" class="van-button van-button--default van-button--normal van-button--plain van-button--hairline van-button--round van-hairline--surround" style="color: rgb(71, 156, 248); border-color: rgb(71, 156, 248);">
+                            <div data-v-5db27be6="" class="van-button__content" ><span data-v-5db27be6=""  class="van-button__text">下载 </span></div>
                         </button>
                     </div>
                 </div>
@@ -186,7 +186,7 @@ downloadBtn.onclick = async ()=>{
     const a = document.createElement('a')
     a.href = currentImgUrl
     // 下载后的文件名，可以自己改
-    a.download = '产品大图.jpg'
+    a.download = '种畜禽许可证.jpg'
     document.body.appendChild(a)
     a.click()
     a.remove()
