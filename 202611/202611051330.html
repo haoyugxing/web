@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Think and make - Spring Festival</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #fdf3df;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0, rgba(212, 175, 55, 0.08) 2px, transparent 3px),
+    radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.06) 0, rgba(212, 175, 55, 0.06) 2px, transparent 3px),
+    radial-gradient(circle at 40% 80%, rgba(212, 175, 55, 0.05) 0, rgba(212, 175, 55, 0.05) 1.5px, transparent 2.5px);
+  background-size: 90px 90px, 120px 120px, 70px 70px;
+  padding: 12px;
+  touch-action: none;
+  overflow-x: hidden;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 24px;
+  color: #9b1c1c;
+  font-weight: bold;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.wrap-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+
+.sticker-bank {
+  background: #fff;
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 70vh;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sticker-bank h4 {
+  text-align: center;
+  color: #a10b12;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border-bottom: 1px dashed #d4af37;
+  padding-bottom: 6px;
+}
+
+.sticker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sticker-item {
+  padding: 8px 4px;
+  background: #fffaf0;
+  border-radius: 6px;
+  text-align: center;
+  cursor: grab;
+  user-select: none;
+}
+.sticker-item:active {
+  cursor: grabbing;
+}
+.sticker-item img {
+  width: 42px;
+  height: auto;
+  pointer-events: none;
+}
+
+.art-text {
+  display: inline-block;
+  font-weight: 800;
+  white-space: nowrap;
+  line-height: 1;
+  pointer-events: none;
+}
+.title-red-gold {
+  font-size: 14px;
+  color: #c71522;
+  text-shadow: 1px 1px 0 #ffd45a;
+  font-family: "Georgia","Times New Roman",serif;
+}
+.title-calligraphy {
+  font-size: 13px;
+  color: #9b1c1c;
+  font-style: italic;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg,#fff4c4,#ffe28a);
+  padding: 3px 5px;
+  border-radius: 6px;
+  border: 1px solid rgba(212,175,55,0.5);
+}
+.title-gold-block {
+  font-size: 13px;
+  color: #fff8dc;
+  background: linear-gradient(135deg,#d62027,#a10b12);
+  padding: 3px 5px;
+  border-radius: 6px;
+  border: 2px solid #ffd45a;
+}
+
+.poster-canvas {
+  position: relative;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(120, 60, 20, 0.22);
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  min-height: 70vh;
+  background-color: #c82c2c;
+  touch-action: none;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 215, 90, 0.35) 0, rgba(255, 215, 90, 0.35) 1.5px, transparent 2px),
+    radial-gradient(circle at 25% 40%, rgba(255, 235, 140, 0.30) 0, rgba(255, 235, 140, 0.30) 1px, transparent 1.5px),
+    radial-gradient(circle at 40% 15%, rgba(255, 200, 70, 0.25) 0, rgba(255, 200, 70, 0.25) 1px, transparent 1.5px),
+    radial-gradient(circle at 55% 60%, rgba(255, 225, 120, 0.30) 0, rgba(255, 225, 120, 0.30) 1.2px, transparent 1.8px),
+    radial-gradient(circle at 70% 30%, rgba(255, 210, 80, 0.28) 0, rgba(255, 210, 80, 0.28) 1px, transparent 1.4px),
+    radial-gradient(circle at 80% 70%, rgba(255, 230, 130, 0.25) 0, rgba(255, 230, 130, 0.25) 1px, transparent 1.5px),
+    radial-gradient(circle at 90% 25%, rgba(255, 205, 75, 0.30) 0, rgba(255, 205, 75, 0.30) 1.3px, transparent 1.8px),
+    radial-gradient(circle at 15% 75%, rgba(255, 220, 110, 0.22) 0, rgba(255, 220, 110, 0.22) 1px, transparent 1.4px),
+    radial-gradient(circle at 35% 85%, rgba(255, 240, 150, 0.20) 0, rgba(255, 240, 150, 0.20) 0.8px, transparent 1.2px),
+    radial-gradient(circle at 65% 80%, rgba(255, 215, 95, 0.24) 0, rgba(255, 215, 95, 0.24) 1px, transparent 1.5px);
+  background-size: 120px 120px, 90px 90px, 150px 150px, 110px 110px, 130px 130px, 100px 100px, 140px 140px, 95px 95px, 80px 80px, 115px 115px;
+}
+.poster-canvas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.04) 0, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 12px),
+    repeating-linear-gradient(-45deg, rgba(0,0,0,0.03) 0, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 16px);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+.poster-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(255, 215, 120, 0.35);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.input-group {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 90%;
+  max-width: 320px;
+}
+.input-row {
+  font-size: 20px;
+  color: #fff8dc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.input-row input {
+  padding: 6px 8px;
+  border: 1px solid #ffd45a;
+  border-radius: 8px;
+  font-size: 18px;
+  flex: 1;
+  min-width: 140px;
+  background: rgba(255, 248, 220, 0.92);
+  color: #9b1c1c;
+}
+
+.drag-sticker {
+  position: absolute;
+  padding: 4px;
+  cursor: move;
+  user-select: none;
+  z-index: 5;
+  transform-origin: center center;
+  touch-action: none;
+}
+.drag-sticker img {
+  width: 70px;
+  height: auto;
+  pointer-events: none;
+}
+
+.assessment-area {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  padding: 12px 14px;
+  position: relative;
+  overflow: hidden;
+}
+.assessment-area h4 {
+  color: #a10b12;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.score-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.result-text {
+  font-size: 18px;
+  font-weight: bold;
+}
+.perfect { color: #44aa66; }
+.excellent { color: #4488dd; }
+.good { color: #ddaa44; }
+.improve { color: #cc4444; }
+
+#submitBtn {
+  padding: 7px 14px;
+  border: none;
+  background: #a10b12;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+#goodJobSticker {
+  position: absolute;
+  right: -180px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  z-index: 50;
+  transition: right 0.5s cubic-bezier(.2,1.4,.4,1), transform 0.5s cubic-bezier(.2,1.4,.4,1);
+  pointer-events: none;
+}
+#goodJobSticker.show {
+  right: 100px;
+  transform: translateY(-50%) scale(1);
+}
+#goodJobSticker img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+#confettiLayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 14px;
+  opacity: 0.95;
+  animation-name: confettiFall;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .wrap-row {
+    grid-template-columns: 110px 1fr;
+  }
+  .page-title {
+    font-size: 20px;
+  }
+  .input-row {
+    font-size: 18px;
+  }
+  .input-row input {
+    min-width: 120px;
+  }
+  #goodJobSticker img {
+    height: 44px;
+  }
+  #goodJobSticker.show {
+    right: 80px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page-title">
+  C. Think and make<br>
+  How do you celebrate the Spring Festival?
+</div>
+
+<div class="wrap-row">
+  <div class="sticker-bank">
+    <h4>Sticker Bank</h4>
+    <div class="sticker-list">
+      <div class="sticker-item" draggable="true" data-type="img" data-src="1.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/1.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="2.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/2.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="3.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/3.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="4.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/4.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="5.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/5.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="6.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/6.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="7.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/7.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="8.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/8.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="9.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/9.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="10.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/10.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="11.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/11.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="12.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/12.png" alt="Sticker">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="new-firework.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/new-firework.png" alt="Firework">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="new-chinese-knot.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/new-chinese-knot.png" alt="Chinese knot">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="new-lantern.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/new-lantern.png" alt="Lantern">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="new-firecrackers.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/new-firecrackers.png" alt="Firecrackers">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="new-red-packet.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/new-red-packet.png" alt="Red packet">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="new-ingot.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/new-ingot.png" alt="Ingot">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="img" data-src="new-sheep-papercut.png">
+        <img src="https://oss.haokeruanjian.top/qrCode/img/202607/20261105/new-sheep-papercut.png" alt="Papercut">
+      </div>
+      <div class="sticker-item" draggable="true" data-type="art" data-art="red-gold">
+        <span class="art-text title-red-gold">the Spring Festival</span>
+      </div>
+      <div class="sticker-item" draggable="true" data-type="art" data-art="calligraphy">
+        <span class="art-text title-calligraphy">the Spring Festival</span>
+      </div>
+      <div class="sticker-item" draggable="true" data-type="art" data-art="gold-block">
+        <span class="art-text title-gold-block">the Spring Festival</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="poster-canvas" id="posterCanvas">
+    <div class="input-group">
+      <div class="input-row">
+        <span>When:</span>
+        <input type="text" id="whenInput" placeholder="Type here">
+      </div>
+      <div class="input-row">
+        <span>Food:</span>
+        <input type="text" id="foodInput" placeholder="Type here">
+      </div>
+      <div class="input-row">
+        <span>Activity:</span>
+        <input type="text" id="activityInput" placeholder="Type here">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="assessment-area">
+  <h4>Assessment:</h4>
+  <div class="score-line">
+    <button id="submitBtn">Submit</button>
+    <span id="scoreText"></span>
+    <span class="result-text" id="resultText"></span>
+    <div id="goodJobSticker">
+      <img src="good-job.png" alt="Good Job">
+    </div>
+  </div>
+</div>
+
+<div id="confettiLayer"></div>
+
+<script>
+const canvas = document.getElementById('posterCanvas');
+const submitBtn = document.getElementById('submitBtn');
+const scoreText = document.getElementById('scoreText');
+const resultText = document.getElementById('resultText');
+const goodJobSticker = document.getElementById('goodJobSticker');
+const confettiLayer = document.getElementById('confettiLayer');
+
+const whenInput = document.getElementById('whenInput');
+const foodInput = document.getElementById('foodInput');
+const activityInput = document.getElementById('activityInput');
+
+// ========== 标准答案（可以自己修改） ==========
+const answerKey = {
+  when: "spring festival",
+  food: "dumplings",
+  activity: "watch the spring festival gala"
+};
+const pointPerBlank = 30;
+const stickerPoint = 10;
+// ============================================
+
+function getComment(score) {
+  if (score >= 90) return { text: "perfect", cls: "perfect" };
+  if (score >= 80) return { text: "excellent", cls: "excellent" };
+  if (score >= 70) return { text: "good", cls: "good" };
+  return { text: "needs improvement", cls: "improve" };
+}
+
+function normalizeStr(s) {
+  return s.trim().toLowerCase();
+}
+
+function launchGoodJob() {
+  goodJobSticker.classList.remove('show');
+  confettiLayer.innerHTML = '';
+  void goodJobSticker.offsetWidth;
+  goodJobSticker.classList.add('show');
+  createConfetti(200);
+  setTimeout(() => {
+    goodJobSticker.classList.remove('show');
+  }, 4000);
+}
+
+function createConfetti(count) {
+  const colors = ['#ff3b3b', '#ffd23f', '#ff9f1c', '#ff5c8a', '#ffffff', '#ffea00'];
+  for (let i = 0; i < count; i++) {
+    const piece = document.createElement('span');
+    piece.className = 'confetti-piece';
+    const left = Math.random() * 100;
+    const delay = Math.random() * 0.8;
+    const dur = 2.4 + Math.random() * 1.8;
+    const c = colors[Math.floor(Math.random() * colors.length)];
+    const sz = 8 + Math.random() * 8;
+    piece.style.left = left + '%';
+    piece.style.background = c;
+    piece.style.width = sz + 'px';
+    piece.style.height = (sz * 1.3) + 'px';
+    piece.style.animationDelay = delay + 's';
+    piece.style.animationDuration = dur + 's';
+    if (Math.random() < 0.35) {
+      piece.style.borderRadius = '50%';
+      piece.style.height = sz + 'px';
+    }
+    confettiLayer.appendChild(piece);
+  }
+}
+
+// 提交批改
+submitBtn.onclick = function () {
+  let score = 0;
+  if(normalizeStr(whenInput.value) === answerKey.when) score += pointPerBlank;
+  if(normalizeStr(foodInput.value) === answerKey.food) score += pointPerBlank;
+  if(normalizeStr(activityInput.value) === answerKey.activity) score += pointPerBlank;
+  // 判断画布上有没有贴纸
+  const stickersOnCanvas = canvas.querySelectorAll('.drag-sticker');
+  if(stickersOnCanvas.length > 0) score += stickerPoint;
+
+  const res = getComment(score);
+  scoreText.textContent = `Score: ${score}/100`;
+  resultText.textContent = res.text;
+  resultText.className = 'result-text ' + res.cls;
+
+  if(score >= 70) {
+    launchGoodJob();
+  }
+};
+
+// 拖拽贴纸逻辑
+function getArtClass(type) {
+  if (type === 'red-gold') return 'title-red-gold';
+  if (type === 'calligraphy') return 'title-calligraphy';
+  if (type === 'gold-block') return 'title-gold-block';
+  return 'title-red-gold';
+}
+
+document.querySelectorAll('.sticker-item').forEach(item => {
+  item.addEventListener('dragstart', e => {
+    const t = item.dataset.type;
+    e.dataTransfer.setData('type', t);
+    if(t === 'img') e.dataTransfer.setData('src', item.dataset.src);
+    if(t === 'art') e.dataTransfer.setData('art', item.dataset.art);
+  });
+});
+
+canvas.addEventListener('dragover', e => e.preventDefault());
+canvas.addEventListener('drop', e => {
+  e.preventDefault();
+  const type = e.dataTransfer.getData('type');
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  createSticker(type, e.dataTransfer.getData('src'), e.dataTransfer.getData('art'), x, y);
+});
+
+function createSticker(type, src, art, x, y) {
+  const sticker = document.createElement('div');
+  sticker.className = 'drag-sticker';
+  sticker.style.left = x + 'px';
+  sticker.style.top = y + 'px';
+  sticker.style.transform = 'scale(1)';
+  if(type === 'img'){
+    const img = document.createElement('img');
+    img.src = src;
+    sticker.appendChild(img);
+  }else if(type === 'art'){
+    const span = document.createElement('span');
+    span.className = 'art-text ' + getArtClass(art);
+    span.textContent = 'the Spring Festival';
+    sticker.appendChild(span);
+  }
+  canvas.appendChild(sticker);
+  bindDrag(sticker);
+}
+
+// 【核心：同时支持鼠标 + 触屏拖拽、双指缩放】
+function bindDrag(el) {
+  let isDrag = false;
+  let startX, startY, elStartLeft, elStartTop;
+  let touch1, touch2;
+  let startDist = 0;
+  let startScale = 1;
+
+  // 鼠标
+  el.addEventListener('mousedown', e => {
+    isDrag = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    elStartLeft = el.offsetLeft;
+    elStartTop = el.offsetTop;
+    el.style.zIndex = 100;
+  });
+  document.addEventListener('mousemove', e => {
+    if (!isDrag) return;
+    el.style.left = (elStartLeft + e.clientX - startX) + 'px';
+    el.style.top = (elStartTop + e.clientY - startY) + 'px';
+  });
+  document.addEventListener('mouseup', () => {
+    isDrag = false;
+    el.style.zIndex = 5;
+  });
+
+  // 触屏
+  el.addEventListener('touchstart', e => {
+    e.preventDefault();
+    const touches = e.touches;
+    if (touches.length === 1) {
+      isDrag = true;
+      startX = touches[0].clientX;
+      startY = touches[0].clientY;
+      elStartLeft = el.offsetLeft;
+      elStartTop = el.offsetTop;
+      el.style.zIndex = 100;
+    } else if (touches.length === 2) {
+      isDrag = false;
+      touch1 = touches[0];
+      touch2 = touches[1];
+      const dx = touch1.clientX - touch2.clientX;
+      const dy = touch1.clientY - touch2.clientY;
+      startDist = Math.sqrt(dx*dx + dy*dy);
+      startScale = parseFloat(el.style.transform.replace(/[^0-9.]/g,'')) || 1;
+    }
+  }, {passive:false});
+
+  el.addEventListener('touchmove', e => {
+    e.preventDefault();
+    const touches = e.touches;
+    if (touches.length === 1 && isDrag) {
+      el.style.left = (elStartLeft + touches[0].clientX - startX) + 'px';
+      el.style.top = (elStartTop + touches[0].clientY - startY) + 'px';
+    } else if (touches.length === 2) {
+      touch1 = touches[0];
+      touch2 = touches[1];
+      const dx = touch1.clientX - touch2.clientX;
+      const dy = touch1.clientY - touch2.clientY;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      let scale = startScale * (dist / startDist);
+      scale = Math.max(0.3, Math.min(3, scale));
+      el.style.transform = `scale(${scale})`;
+    }
+  }, {passive:false});
+
+  el.addEventListener('touchend', () => {
+    isDrag = false;
+    el.style.zIndex = 5;
+  });
+}
+
+// 【平板触屏：从贴纸库拖到画布】
+let dragInfo = null;
+document.querySelectorAll('.sticker-item').forEach(item => {
+  item.addEventListener('touchstart', e=>{
+    if(e.touches.length!==1) return;
+    const t = item.dataset.type;
+    dragInfo = {
+      type: t,
+      src: item.dataset.src || "",
+      art: item.dataset.art || "",
+      touchId: e.touches[0].identifier
+    };
+  },{passive:true});
+});
+document.addEventListener('touchmove', e=>{},{passive:true});
+document.addEventListener('touchend', e=>{
+  if(!dragInfo) return;
+  const touch = Array.from(e.changedTouches).find(t=>t.identifier === dragInfo.touchId);
+  if(!touch){dragInfo=null;return;}
+  const rect = canvas.getBoundingClientRect();
+  const x = touch.clientX - rect.left;
+  const y = touch.clientY - rect.top;
+  if(x>=0 && y>=0 && x<=rect.width && y<=rect.height){
+    createSticker(dragInfo.type, dragInfo.src, dragInfo.art, x, y);
+  }
+  dragInfo = null;
+});
+</script>
+</body>
+</html>
+<!-- （注：内容由AI生成） -->
