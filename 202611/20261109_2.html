@@ -1,0 +1,362 @@
+<html lang="en" style="font-size: 36.25px;">
+ <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+  <link rel="icon" href="favicon.ico" />
+  <title>报告信息</title>
+  <script>window.addEventListener("orientationchange", setRem);
+			window.addEventListener("resize", setRem);
+			function setRem() {
+				var html = document.querySelector("html");
+				var width = html.getBoundingClientRect().width;
+				html.style.fontSize = width / 16 + "px";
+			}
+			setRem();
+      // rem = 设计尺寸 * 16 / width(设备可视宽)
+      // px = width(设备可视宽) / 16 * rem</script>
+  <script>document.write(unescape("%3Cscript src='js/conf/configSetting.js' %3E%3C/script%3E"));
+      document.write(unescape("%3Cscript src='js/lib/md5.min.js' %3E%3C/script%3E"));
+      document.write(unescape("%3Cscript src='js/lib/hamacMd5.min.js' %3E%3C/script%3E"));</script>
+  <script src="js/conf/configSetting.js"></script>
+  <script src="js/lib/md5.min.js"></script>
+  <script src="js/lib/hamacMd5.min.js"></script>
+  <script>window.UNITNAME_COFIG = configSetting.customerUnitName
+      window.UNITIMG_COFIG = configSetting.customerUnitImg
+      window.REPORT_DOWNLOAD = configSetting.baseUrl.reportDownload</script>
+  <link href="css/chunk-048bcf36.e5b6766d.css" rel="prefetch" />
+  <link href="css/chunk-1fd869d8.b6ed8856.css" rel="prefetch" />
+  <link href="css/chunk-261ae8a2.be5270bb.css" rel="prefetch" />
+  <link href="css/chunk-29e23b6a.7e25fd14.css" rel="prefetch" />
+  <link href="css/chunk-2f0e8816.482e3c5f.css" rel="prefetch" />
+  <link href="css/chunk-32e137c8.af39cc56.css" rel="prefetch" />
+  <link href="css/chunk-3582793d.c8291478.css" rel="prefetch" />
+  <link href="css/chunk-384ec65a.a11ece41.css" rel="prefetch" />
+  <link href="css/chunk-3a90931c.7f709371.css" rel="prefetch" />
+  <link href="css/chunk-412ecdaf.0d63ea6d.css" rel="prefetch" />
+  <link href="css/chunk-429f9d02.e9d0300e.css" rel="prefetch" />
+  <link href="css/chunk-445587c6.0f87a7e9.css" rel="prefetch" />
+  <link href="css/chunk-4dc72238.96122bdc.css" rel="prefetch" />
+  <link href="css/chunk-4ec789ce.be9f574f.css" rel="prefetch" />
+  <link href="css/chunk-504971e4.758fe502.css" rel="prefetch" />
+  <link href="css/chunk-57e6c410.2c399ad7.css" rel="prefetch" />
+  <link href="css/chunk-5db24830.a7c6da2c.css" rel="prefetch" />
+  <link href="css/chunk-623f19ca.531178c0.css" rel="prefetch" />
+  <link href="css/chunk-6e4f4fcc.eecfa0c9.css" rel="prefetch" />
+  <link href="css/chunk-7a1eedd7.128ec241.css" rel="prefetch" />
+  <link href="css/chunk-8b92858a.2cca08cd.css" rel="prefetch" />
+  <link href="css/chunk-9403b806.1dd31315.css" rel="prefetch" />
+  <link href="css/chunk-a85bd98e.bf8159ad.css" rel="prefetch" />
+  <link href="css/chunk-a9f1d0be.156924a3.css" rel="prefetch" />
+  <link href="css/chunk-b2f5e774.cab8da6d.css" rel="prefetch" />
+  <link href="css/chunk-b329697e.17d62371.css" rel="prefetch" />
+  <link href="css/chunk-d0e7e886.9edf07c7.css" rel="prefetch" />
+  <link href="css/chunk-f1e9a136.bc9ede68.css" rel="prefetch" />
+  <link href="css/chunk-f851f960.dfd69a87.css" rel="prefetch" />
+  <link href="js/chunk-048bcf36.cc819a47.js" rel="prefetch" />
+  <link href="js/chunk-1fd869d8.3dbb55af.js" rel="prefetch" />
+  <link href="js/chunk-261ae8a2.27f86f04.js" rel="prefetch" />
+  <link href="js/chunk-29e23b6a.01fc7daa.js" rel="prefetch" />
+  <link href="js/chunk-2f0e8816.aab916f2.js" rel="prefetch" />
+  <link href="js/chunk-32e137c8.d4873f64.js" rel="prefetch" />
+  <link href="js/chunk-3582793d.34731e95.js" rel="prefetch" />
+  <link href="js/chunk-384ec65a.6699a5ec.js" rel="prefetch" />
+  <link href="js/chunk-3a90931c.9371fc14.js" rel="prefetch" />
+  <link href="js/chunk-412ecdaf.76409c4c.js" rel="prefetch" />
+  <link href="js/chunk-429f9d02.9ea16b7c.js" rel="prefetch" />
+  <link href="js/chunk-445587c6.592b2329.js" rel="prefetch" />
+  <link href="js/chunk-4dc72238.116c382a.js" rel="prefetch" />
+  <link href="js/chunk-4ec789ce.f3b525c5.js" rel="prefetch" />
+  <link href="js/chunk-504971e4.111d40d9.js" rel="prefetch" />
+  <link href="js/chunk-57e6c410.f609dce2.js" rel="prefetch" />
+  <link href="js/chunk-5db24830.0514219c.js" rel="prefetch" />
+  <link href="js/chunk-623f19ca.de6d498f.js" rel="prefetch" />
+  <link href="js/chunk-6e4f4fcc.f56878c1.js" rel="prefetch" />
+  <link href="js/chunk-7a1eedd7.cb6cb603.js" rel="prefetch" />
+  <link href="js/chunk-8b92858a.2200abd5.js" rel="prefetch" />
+  <link href="js/chunk-9403b806.e2658039.js" rel="prefetch" />
+  <link href="js/chunk-a85bd98e.7601c1fd.js" rel="prefetch" />
+  <link href="js/chunk-a9f1d0be.061d37ae.js" rel="prefetch" />
+  <link href="js/chunk-b2f5e774.d0c855e6.js" rel="prefetch" />
+  <link href="js/chunk-b329697e.0370a0f8.js" rel="prefetch" />
+  <link href="js/chunk-d0e7e886.74f3e66d.js" rel="prefetch" />
+  <link href="js/chunk-f1e9a136.f4dc2a1b.js" rel="prefetch" />
+  <link href="js/chunk-f851f960.39a9499a.js" rel="prefetch" />
+  <link href="./app.2c6a9b93.css" rel="preload" as="style" />
+  <link href="./chunk-vendors.da4f63b2.css" rel="preload" as="style" />
+  <link href="js/app.852d8072.js" rel="preload" as="script" />
+  <link href="js/chunk-vendors.56f48252.js" rel="preload" as="script" />
+  <link href="css/chunk-vendors.da4f63b2.css" rel="stylesheet" />
+  <link href="css/app.2c6a9b93.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./chunk-d0e7e886.9edf07c7.css" />
+  <script charset="utf-8" src="js/chunk-d0e7e886.74f3e66d.js"></script>
+    <style>
+    /* ========== 预览弹层（统一用 px / vw / vh，避免受根字号 36.25px 影响） ========== */
+    .preview-mask {
+      position: fixed;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, .75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+    }
+    .preview-mask.show { display: flex; }
+
+    .preview-dialog {
+      width: 92vw;
+      max-width: 1000px;
+      height: 88vh;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .35);
+      animation: previewIn .2s ease-out;
+    }
+    @keyframes previewIn {
+      from { opacity: 0; transform: scale(.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .preview-header {
+      flex: 0 0 auto;
+      height: 44px;
+      padding: 0 6px 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+    }
+    .preview-title {
+      font-size: 15px;
+      color: #333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-right: 10px;
+    }
+    .preview-actions { display: flex; align-items: center; flex: 0 0 auto; }
+    .preview-actions a,
+    .preview-actions .preview-close {
+      font-size: 15px;
+      color: #666;
+      line-height: 30px;
+      padding: 0 10px;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .preview-actions a:hover,
+    .preview-actions .preview-close:hover { background: #f2f2f2; color: #333; }
+    .preview-close { font-size: 22px; }
+
+    /* 内容区：长图纵向滚动 */
+    .preview-body {
+      flex: 1 1 auto;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      background: #f5f6f7;
+      position: relative;
+    }
+    .preview-body img {
+      display: block;
+      width: 100%;       /* 长图按宽度铺满，高度自适应，纵向滚动查看 */
+      height: auto;
+      margin: 0 auto;
+    }
+    .preview-body iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+
+    .preview-loading {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 14px;
+      color: #999;
+    }
+    .preview-tip {
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 2;
+      color: #888;
+    }
+    .preview-tip a { color: #4ec7f2; }
+  </style>
+ </head>
+ <body>
+  <noscript>
+   <strong>We're sorry but mobile doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app">
+   <div class="container">
+    <div class="title-box" style="">
+     <span> 河北特检 </span>
+    </div>
+    <div>
+     <div>
+      <span class="item-left"> 报告书编号 </span>
+      <span class="item-right"> 冀特QZDJ16202602807 </span>
+     </div>
+     <div>
+      <span class="item-left"> 受检单位名称 </span>
+      <span class="item-right"> 于海涛 </span>
+     </div>
+     <div>
+      <span class="item-left"> 业务流水号 </span>
+      <span class="item-right"> 98D8F6925E05B1B385508EE6D10DC0DCADB5954D4577F7C5367CF5B79DDE9B251DE8D058EF1DD702E2CCECADEC2E10F724B07D10A052268B7178481BEB4211032172BABA39ADFB124E1A96D24564ED94 </span>
+     </div>
+     <div>
+      <span class="item-left"> 电子报告 </span>
+      <!--<span class="item-right"><a style="color: rgb(78, 199, 242); cursor: pointer;">冀特QZDJ16202602807.pdf</a></span>-->
+	   <span class="item-right">
+        <!-- 加 id + data-src，点击由 JS 接管 -->
+        <a id="pdfLink" data-src="./20261109_2.png" style="color: rgb(78, 199, 242); cursor: pointer;">test.pdf</a>
+      </span>
+     </div>
+     <div>
+      <span class="item-left"> 报告状态 </span>
+      <span class="item-right"> 有效报告 </span>
+     </div>
+    </div>
+    <iframe name="testiframe" id="testiframe" style="display: none;"></iframe>
+    <!---->
+   </div>
+  </div>
+  <!-- ========== 预览弹层 ========== -->
+  <div class="preview-mask" id="previewMask">
+    <div class="preview-dialog">
+      <div class="preview-header">
+        <span class="preview-title" id="previewTitle">test.pdf</span>
+        <div class="preview-actions">
+          <a id="previewDownload" href="javascript:;" download>下载</a>
+          <span class="preview-close" id="previewClose">×</span>
+        </div>
+      </div>
+      <div class="preview-body" id="previewBody"></div>
+    </div>
+  </div>
+  <script src="js/chunk-vendors.56f48252.js"></script>
+  <script src="js/app.852d8072.js"></script>
+  <script>
+  (function () {
+    var link      = document.getElementById('pdfLink');
+    var mask      = document.getElementById('previewMask');
+    var body      = document.getElementById('previewBody');
+    var titleEl   = document.getElementById('previewTitle');
+    var closeBtn  = document.getElementById('previewClose');
+    var downloadBtn = document.getElementById('previewDownload');
+
+    // 按后缀判断是不是图片
+    var IMAGE_EXT = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg', 'ico'];
+
+    function getExt(url) {
+      var clean = String(url).split('?')[0].split('#')[0];
+      var i = clean.lastIndexOf('.');
+      return i > -1 ? clean.slice(i + 1).toLowerCase() : '';
+    }
+
+    function clearBody() {
+      body.innerHTML = '';
+    }
+
+    function showTip(html) {
+      clearBody();
+      var tip = document.createElement('div');
+      tip.className = 'preview-tip';
+      tip.innerHTML = html;
+      body.appendChild(tip);
+    }
+
+    // 打开预览
+    function openPreview(url, name) {
+      clearBody();
+      titleEl.textContent = name || url;
+      downloadBtn.setAttribute('href', url);
+      downloadBtn.setAttribute('download', name || '');
+
+      var loading = document.createElement('div');
+      loading.className = 'preview-loading';
+      loading.textContent = '加载中...';
+      body.appendChild(loading);
+
+      var removeLoading = function () {
+        if (loading && loading.parentNode) loading.parentNode.removeChild(loading);
+      };
+
+      var ext = getExt(url);
+
+      if (IMAGE_EXT.indexOf(ext) > -1) {
+        /* ---------- 图片（含长图） ---------- */
+        var img = new Image();
+        img.onload = removeLoading;
+        img.onerror = function () {
+          showTip('图片加载失败，请 <a href="' + url + '" download>点击下载</a>');
+        };
+        img.alt = name || '';
+        img.src = url;
+        body.appendChild(img);
+      } else {
+        /* ---------- PDF / 其它文件，用 iframe 内嵌预览（不跳转页面） ---------- */
+        var iframe = document.createElement('iframe');
+        iframe.onload = removeLoading;
+        iframe.src = url;
+        body.appendChild(iframe);
+
+        // 兜底：部分移动端浏览器（如 Android Chrome）不支持内嵌 PDF，
+        // 4 秒后仍停留在加载态就提示下载
+        setTimeout(function () {
+          if (loading && loading.parentNode) {
+            showTip(
+              '当前浏览器可能不支持在线预览该文件，<br/>请 <a href="' + url + '" download>点击下载</a> 后查看'
+            );
+          }
+        }, 4000);
+      }
+
+      mask.classList.add('show');
+      document.body.style.overflow = 'hidden'; // 锁定背景滚动
+    }
+
+    // 关闭预览
+    function closePreview() {
+      mask.classList.remove('show');
+      clearBody();                                  // 清空 iframe，停止加载
+      document.body.style.overflow = '';
+    }
+
+    // 点击文件名 → 打开预览
+    link.addEventListener('click', function (e) {
+      e.preventDefault();                           // 阻止默认跳转
+      var url = link.getAttribute('data-src') || link.getAttribute('href') || '';
+      if (!url || url === '#') {
+        alert('未配置文件地址');
+        return;
+      }
+      openPreview(url, link.textContent.trim());
+    });
+
+    // 关闭按钮
+    closeBtn.addEventListener('click', closePreview);
+
+    // 点击遮罩空白处关闭
+    mask.addEventListener('click', function (e) {
+      if (e.target === mask) closePreview();
+    });
+
+    // ESC 关闭
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mask.classList.contains('show')) closePreview();
+    });
+  })();
+  </script>
+ </body>
+</html>
