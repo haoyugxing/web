@@ -1,56 +1,78 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>无法打开</title>
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: system-ui, -apple-system, sans-serif;
-}
-body{
-  min-height:100vh;
-  background:#f7f8fa;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-}
-.card{
-  background:#ffffff;
-  border-radius:18px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  text-align:center;
-  padding:48px 36px;
-  max-width:400px;
-  width:100%;
-}
-.icon{
-  font-size:56px;
-  color:#9ca3af;
-  margin-bottom:24px;
-}
-h1{
-  font-size:22px;
-  color:#1f2937;
-  font-weight:600;
-  margin-bottom:12px;
-}
-p{
-  color:#6b7280;
-  line-height:1.7;
-  font-size:15px;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>文件未找到</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+        }
+
+        .icon {
+            font-size: 72px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #777;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #4a90e2;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #3b7bc4;
+        }
+    </style>
 </head>
 <body>
-<div class="card">
-  <div class="icon">📄</div>
-  <h1>文件无法打开</h1>
-  <p>该链接已失效，文件不存在或已被移除</p>
+
+<div class="container">
+    <div class="icon">🗑️</div>
+    <h1>文件不存在或已被删除</h1>
+    <p>
+        抱歉，您访问的文件可能已被删除、移动或从未存在。<br>
+        请检查链接是否正确，或返回首页继续浏览。
+    </p>
 </div>
+
 </body>
 </html>
